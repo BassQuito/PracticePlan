@@ -3,34 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U8 Basketball Coaching Playbook</title>
+    <title>U8 Basketball Coaching Playbook - Modified Zoom Attack</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals with a supportive blue accent. Background: off-white/beige, Text: dark gray, Accent: deep blue. -->
-    <!-- Application Structure Plan: The SPA is structured into three main sections: The Playbook, Practice Planner, and then Philosophy/Practice Breakdown. This task-oriented design prioritizes immediate access to game strategies and detailed practice plans. Navigation is sticky for easy access. Offense, Defense, and ATO Plays are tabbed for focused exploration. The Practice Planner features detailed tabs for each of the 16 scheduled practices, plus new flexible and low-intensity options, displaying full drill breakdowns with dynamic checkboxes for tracking completion. The core interaction is clicking to reveal more detail and switch views, keeping the interface clean and preventing user overwhelm. -->
-    <!-- Visualization & Content Choices: 
-        - Philosophy: Goal=Inform. Method=Cards with icons. Interaction=Click to expand. Justification=Concisely presents core tenets.
-        - Offense/Defense Schemes: Goal=Explain/Organize. Method=Static image diagrams and accordions. Interaction=Click headers to see details. Justification=Visually demonstrates formations and principles.
-        - ATO Plays: Goal=Inform/Execute. Method=Tabbed content with detailed numbered lists. Interaction=Click play name to show details. Justification=Provides quick, text-based refresh for game situations, crucial for U8 coaches/players.
-        - Practice Time Allocation: Goal=Compare. Method=Chart.js Doughnut Chart. Interaction=Hover for tooltips. Justification=Instantly shows the balance of a practice session.
-        - 8-Week Plan: Goal=Show Change over Time. Method=Interactive Tabs/Detailed Tables with Checkboxes. Interaction=Click a specific practice tab to see its full drill breakdown; toggle checkboxes to mark drills as complete. Justification=Breaks a long plan into manageable, actionable daily components, directly incorporating the requested spreadsheet data for each practice, including new flexible options, and adds practical tracking.
-        - Drill Library: Goal=Organize/Inform. Method=Filterable cards with category buttons and search. Interaction=Click category buttons to filter; type to search within categories; click to expand. Justification=Provides a quick, practical reference tool for coaches during practice planning, significantly improving browsing experience.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body { font-family: 'Inter', sans-serif; }
         .tab-active { border-color: #1e3a8a; color: #1e3a8a; background-color: #e0e7ff; }
         .tab-inactive { border-color: transparent; color: #4b5563; }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .player-dot { transition: all 0.2s ease-in-out; }
-        .player-dot:hover { transform: scale(1.2); box-shadow: 0 0 15px rgba(30, 58, 138, 0.5); }
         .nav-item.active { color: #1e3a8a; font-weight: 600; }
         .practice-table th, .practice-table td { padding: 8px 12px; border: 1px solid #e2e8f0; text-align: left; vertical-align: top; }
         .practice-table th { background-color: #f8fafc; font-weight: 600; }
-        .practice-table-container { overflow-x: auto; } /* Allows horizontal scrolling for wide tables */
+        .practice-table-container { overflow-x: auto; }
         .ato-play-selector.active { background-color: #e0e7ff; font-weight: 600; }
         .diagram-img {
             max-width: 100%;
@@ -41,7 +28,7 @@
         .drill-completed {
             opacity: 0.5;
             text-decoration: line-through;
-            background-color: #f0f4f8; /* Lighter background for completed rows */
+            background-color: #f0f4f8;
         }
         .category-button.active {
             background-color: #1e3a8a;
@@ -72,7 +59,7 @@
             
             <header class="text-center mb-12 relative">
                 <h1 class="text-4xl md:text-5xl font-bold text-blue-900">U8 Basketball Playbook</h1>
-                <p class="text-lg text-stone-600 mt-2">An Interactive Guide to Developing Young Players</p>
+                <p class="text-lg text-stone-600 mt-2">Modified Zoom Attack Offensive System</p>
                 <button id="logout-button" class="absolute top-0 right-0 bg-red-500 text-white text-sm px-3 py-1 rounded-md hover:bg-red-600 transition-colors">Logout</button>
             </header>
 
@@ -98,12 +85,12 @@
                     <!-- Offense Content -->
                     <div id="offense-content">
                         <div class="text-center mb-6">
-                            <h3 class="text-2xl font-semibold">5-Out Motion Offense</h3>
-                            <p class="text-stone-600 max-w-2xl mx-auto">The best scheme for U8 development. It maximizes spacing, ensures every player is involved, and teaches decision-making.</p>
+                            <h3 class="text-2xl font-semibold">Modified Zoom Attack Offense</h3>
+                            <p class="text-stone-600 max-w-2xl mx-auto">A structured yet flexible offense combining aggressive drives with screen-and-handoff actions. Perfect for U8 development with clear triggers and reads.</p>
                         </div>
                         <div class="grid lg:grid-cols-2 gap-8 items-center">
                             <div class="relative w-full max-w-md mx-auto aspect-square bg-blue-50 border-2 border-blue-200 rounded-lg p-4 flex items-center justify-center">
-                                <img src="https://www.basketballforcoaches.com/wp-content/uploads/2016/08/5-out-setup.jpg" alt="5-Out Offensive Setup Diagram" class="diagram-img" onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Offense+Diagram+Unavailable';">
+                                <img src="https://www.basketballforcoaches.com/wp-content/uploads/2016/08/5-out-setup.jpg" alt="Modified Zoom Attack Setup" class="diagram-img" onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/333333?text=Offense+Diagram+Unavailable';">
                             </div>
 
                             <div>
@@ -144,7 +131,6 @@
                             <div class="lg:col-span-1">
                                 <h4 id="ato-play-title" class="font-semibold text-xl mb-4 text-blue-900"></h4>
                                 <div id="ato-play-details-container" class="text-stone-600 mb-4"></div>
-                                <!-- ATO Diagrams removed as requested -->
                             </div>
                         </div>
                     </div>
@@ -166,7 +152,7 @@
                     </div>
                 </section>
 
-                <!-- Philosophy & Practice Breakdown Section (Moved to Bottom) -->
+                <!-- Philosophy & Practice Breakdown Section -->
                 <section id="philosophy-bottom" class="mb-16 scroll-mt-24">
                     <h2 class="text-3xl font-bold text-center mb-8 text-blue-900">Coaching Philosophy & Practice Breakdown</h2>
                     <div class="grid lg:grid-cols-2 gap-8">
@@ -178,8 +164,8 @@
                                     <p class="text-stone-600">Prioritize long-term skill development over short-term wins. Focus on fundamentals to build confident, well-rounded players.</p>
                                 </div>
                                 <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
-                                    <h3 class="font-bold text-xl mb-2 text-blue-800">😄 Fun & Engagement</h3>
-                                    <p class="text-stone-600">Use fast-paced drills and games. An engaged player is a learning player. Follow the "No Lines, No Laps, No Lectures" rule to maximize activity.</p>
+                                    <h3 class="font-bold text-xl mb-2 text-blue-800">⚡ Attack Mentality</h3>
+                                    <p class="text-stone-600">Teach aggressive drives to the basket first. Build confidence through attacking, then add structure with screens and reads.</p>
                                 </div>
                                 <div class="bg-white p-6 rounded-lg shadow-md border border-stone-200">
                                     <h3 class="font-bold text-xl mb-2 text-blue-800">🤝 Inclusive & Positive</h3>
@@ -205,67 +191,51 @@
         document.addEventListener('DOMContentLoaded', function () {
             
             // --- GLOBAL STATE FOR CHECKBOXES ---
-            const practiceDrillStates = {}; // Stores { weekId: { practiceIndex: { drillName: true/false } } }
+            const practiceDrillStates = {};
 
             // --- DATA ---
             const offensePrinciples = [
-                { title: 'Pass & Cut', content: 'The foundation. After every pass, cut hard to the basket looking for a return pass. Puts constant pressure on the defense.' },
-                { title: 'Fill Open Spots', content: 'After cutting, players must fill the open spots on the perimeter to maintain spacing and offensive balance.' },
-                { title: 'Dribble Drive & Kick', content: 'If a lane is open, attack the basket. If the defense collapses, find an open teammate on the perimeter for a shot.' },
-                { title: 'Backdoor Cut', content: 'If a defender is overplaying you or denying the pass, make a sharp cut behind them to the basket for an easy layup.' },
-                { title: 'Simple ATO Plays', content: 'Teach 1-2 simple Baseline (BLOB) and Sideline (SLOB) plays for quick scores after a dead ball. Confidence booster!' }
+                { title: 'Drive & Fill', content: 'Primary action: Ball handler attacks immediately after crossing half court. Weak side wing cuts through to opposite corner. Others fill to maintain spacing.' },
+                { title: 'Zoom Action', content: 'Secondary action: Pass to wing triggers down screen for corner player. Corner "zooms" off screen to receive dribble handoff. Creates immediate scoring pressure.' },
+                { title: 'Dribble Handoffs', content: 'Continuity action: If no shot from zoom, continue with dribble handoffs around perimeter. Keep defense moving and create driving angles.' },
+                { title: 'Backdoor Cuts', content: 'Counter to pressure: When overplayed, make sharp cuts to the basket. Punish aggressive defense with easy layups.' },
+                { title: 'Spacing Rules', content: 'Maintain 12-15 feet between players. Fill open spots immediately. Weak side stays home. Corner players hold position.' }
             ];
 
             const defensePrinciples = [
-                { title: 'On-Ball Pressure', content: 'Stay low in an athletic stance, one arm\'s length away. Force the dribbler towards the sideline or baseline, keeping them out of the "pack line".' },
-                { title: 'Pack Line Position', content: 'Off-ball defenders must be inside an imaginary "pack line" (about 16 feet from the basket). This denies easy middle penetration and forces outside shots.' },
-                { title: 'Deny (1 Pass Away)', content: 'When your player is one pass away, be in the passing lane with active hands, denying a direct pass. Be ready to "jump to the ball" if it\'s passed.' },
-                { title: 'Help Side (2+ Passes Away)', content: 'When your player is far from the ball, sink deeper into the pack line towards the basket. Be ready to provide help on a drive, then recover quickly to your man.' },
-                { title: 'Box Out!', content: 'As soon as a shot goes up, find your player and make contact to seal them away from the basket. Rebounding wins games.' },
-                { title: 'Defend Fast Breaks', content: 'Immediately sprint back on defense after a shot or turnover. Communicate to pick up the closest offensive player and protect the basket.'},
-                { title: 'Defend On-Ball Screens (Basic)', content: 'When an offensive player sets a screen on the ball, the defender guarding the screener should "hedge" (step out briefly) while the on-ball defender goes "over" or "under" the screen, then recover quickly.'}
+                { title: 'On-Ball Pressure', content: 'Stay low in athletic stance, arms length away. Force dribbler toward sideline or baseline, keeping them out of the pack line.' },
+                { title: 'Pack Line Position', content: 'Off-ball defenders must be inside imaginary pack line (16 feet from basket). Denies middle penetration and forces outside shots.' },
+                { title: 'Deny Position', content: 'When one pass away, be in passing lane with active hands. Jump to the ball when it moves.' },
+                { title: 'Help Side', content: 'When two passes away, sink into pack line toward basket. Ready to help on drives, then recover quickly.' },
+                { title: 'Box Out & Rebound', content: 'Find your player immediately when shot goes up. Make contact, seal away from basket. Pursue ball aggressively.' },
+                { title: 'Communication', content: 'Constant verbal communication is essential. Call out screens, help, and defensive assignments loudly and clearly.' }
             ];
-
-            const playerInfos = {
-                'player-1': { title: 'Top (Point)', text: 'Initiates offense. Looks to pass, drive, or cut.' },
-                'player-2': { title: 'Left Wing', text: 'Spreads the floor. Ready to shoot, drive, or backdoor cut.' },
-                'player-3': { title: 'Right Wing', text: 'Mirrors the left wing. Must be active without the ball.' },
-                'player-4': { title: 'Left Short Corner', text: 'Stretches the defense. Excellent spot for kick-out passes.' },
-                'player-5': { title: 'Right Short Corner', text: 'Keeps the defense honest and provides a passing outlet.' },
-                'def-player-1': { title: 'On-Ball Defense', text: 'Applying pressure, forcing outside the pack line.' },
-                'def-player-2': { title: 'Denial Position', text: 'One pass away. In the passing lane, ready to jump to the ball.' },
-                'def-player-3': { title: 'Help Side (Inside Pack Line)', text: 'Two passes away. Sunk into the paint, ready to help and recover.' },
-                'def-player-4': { title: 'Help Side (Inside Pack Line)', text: 'Two passes away. Sunk into the paint, ready to help and recover.' },
-                'def-player-5': { title: 'Help Side (Inside Pack Line)', text: 'Two passes away. Sunk into the paint, ready to help and recover.' }
-            };
 
             const atoPlays = [
                 {
-                    id: 'blob-quick-in-out',
-                    name: 'BLOB: Quick In-Out',
-                    description: 'A simple baseline inbound play to get a quick pass to the wing for an immediate attack or pass.',
+                    id: 'blob-zoom-quick',
+                    name: 'BLOB: Zoom Quick Hit',
+                    description: 'Baseline inbound using zoom action for quick score.',
                     details: [
-                        '1. Player 5 (Inbounder) stands on the baseline with the ball.',
-                        '2. Player 1 starts on the strong-side low block (near Player 5).',
-                        '3. Player 2 starts on the weak-side low block (opposite Player 1).',
-                        '4. Players 3 and 4 position themselves on the wings/top of the key, ready to receive a kick-out.',
-                        '5. Player 1 makes a sharp V-cut: first towards the basket, then quickly pops out to the strong-side short corner or wing.',
-                        '6. Player 5 (Inbounder) looks to pass directly to Player 1 as they pop out.',
-                        '7. If Player 1 receives the pass, they should immediately look to drive to the basket or pass to an open teammate (3 or 4) if the defense collapses.'
+                        'Players stack on strong side block',
+                        'Top player screens down for bottom player',
+                        'Bottom player zooms to corner for catch',
+                        'Inbounder passes to corner',
+                        'Screener rolls to basket after screen',
+                        'Corner player attacks or hits roller'
                     ]
                 },
                 {
-                    id: 'slob-give-and-go',
-                    name: 'SLOB: Give and Go',
-                    description: 'A quick sideline inbound play where the passer immediately cuts to the basket for a return pass.',
+                    id: 'slob-drive-entry',
+                    name: 'SLOB: Drive Entry',
+                    description: 'Sideline inbound to immediate drive action.',
                     details: [
-                        '1. Player 1 (Inbounder) stands on the sideline with the ball.',
-                        '2. Player 2 positions themselves on the wing closest to the inbounder, ready to receive the pass.',
-                        '3. Players 3, 4, and 5 spread out on the opposite side of the court or near the top of the key to provide spacing.',
-                        '4. Player 2 cuts hard towards Player 1 (Inbounder) to receive the inbound pass.',
-                        '5. As soon as Player 2 catches the ball, they immediately pass it back to Player 1 (Inbounder).',
-                        '6. After passing, Player 2 makes a sharp, direct cut to the basket, looking for a return pass from Player 1 for a layup.',
-                        '7. Player 1 (Inbounder) receives the ball back and looks to pass to Player 2 cutting to the basket. If not open, they can look to pass to 3, 4, or 5.'
+                        'Best driver starts at elbow',
+                        'Other players spread to corners and opposite wing',
+                        'Driver cuts hard to ball for inbound pass',
+                        'Upon catch, immediate drive to basket',
+                        'Weak side players cut and fill',
+                        'If no drive, trigger zoom action'
                     ]
                 }
             ];
@@ -277,29 +247,27 @@
                         {
                             name: 'Practice 1',
                             drills: [
-                                { name: 'Dynamic Warm-up: Dribble Tag', skills: 'Agility, quickness, ball control, head up', setup: 'All players dribble while trying to tag others\' balls. Start in half-court, expand to full court.', keyPoints: 'Protect your ball! Eyes up! Have fun!', time: 10, method: 'Group' },
-                                { name: 'Station A: Ball Handling Basics', skills: 'Ball control, both hands, fingertips', setup: 'Stationary dribbling: right hand, left hand, alternating. Progress to walking, then jogging.', keyPoints: 'Ball below waist, fingertips not palm, bounce hard', time: 10, method: 'Individual' },
-                                { name: 'Station B: Partner Passing (Chest & Bounce)', skills: 'Passing accuracy, catching, hand-eye coordination', setup: 'Partners 8 feet apart, chest pass, bounce pass. Use targets (cones) between players.', keyPoints: 'Step toward target, push through with thumbs down. Catch with soft hands.', time: 10, method: 'Pairs' },
-                                { name: 'Station C: Layup Form Shooting (Right Hand)', skills: 'Layup mechanics, shooting form', setup: 'Close-range shooting (3-5 feet). Focus on: BEEF (Balance, Eyes, Elbow, Follow-through). Progress to one-step layups (right side for right hand).', keyPoints: 'Shoot up and over, soft touch, use backboard. Right hand, right foot, left knee up for right layup.', time: 10, method: 'Individual' },
-                                { name: 'Offensive Concept: 5-Out Spacing Walk-through', skills: 'Offensive spacing, court awareness', setup: 'Set up cones for 5-out perimeter spots. Players walk to and stand in these spots. Coach calls out "open spot" and players rotate.', keyPoints: '"Spread out!" "Don\'t clump!" "Find an open spot!"', time: 8, method: 'Sequential' },
-                                { name: 'Defensive Concept: Stance & Mirror Drill (Pack Line Focus)', skills: 'Defensive stance, lateral movement, staying in front', setup: 'Players pair up. One is offense, one is defense. Defense mirrors offensive player\'s movement (no ball). Coach corrects stances, emphasizing staying low and inside the imaginary "pack line".', keyPoints: '"Stay low!" "Knees bent!" "Eyes on chest!" "Short, choppy steps!" "Stay inside the pack line!"', time: 7, method: 'Small Groups' },
-                                { name: 'Small-Sided Games: 3v3 Half-Court (Effort Focus)', skills: 'Applying concepts, teamwork, decision-making, hustle', setup: 'Divide into 2-3 teams for half-court 3-on-3. Games to 5 points. Coach emphasizes effort and spacing. Minimal dribbling rules initially.', keyPoints: '"Have fun, hustle, encourage teammates!" "Spread out!" "Stay with your player!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 Full Court (Basic Rules)', skills: 'Game application, spacing, effort', setup: 'Light scrimmage focusing on effort and spacing. Coach stops play to reinforce concepts.', keyPoints: '"Play hard, space out, encourage each other!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Recap practice, positive reinforcement, reinforce one key takeaway (e.g., "Great job spreading out!").', keyPoints: 'Focus on listening and positive attitude.', time: 5, method: 'Sequential' }
+                                { name: 'Dynamic Warm-up: Dribble Tag', skills: 'Ball control, agility, awareness', setup: 'All players dribble while trying to knock away others balls. Start in half-court, expand to full.', keyPoints: 'Keep your dribble alive while protecting the ball', time: 10, method: 'Group' },
+                                { name: 'Attack Drives Introduction', skills: 'Aggressive drives, finishing', setup: 'Players line up at half court, sprint dribble to basket for layup. Alternate sides.', keyPoints: 'Attack the rim with speed and finish strong', time: 12, method: 'Individual' },
+                                { name: 'Drive & Fill Basics', skills: 'Spacing, cutting, filling', setup: '5 players in position. PG drives right, RW cuts through to opposite corner, others fill.', keyPoints: 'Sprint on cuts, fill quickly, maintain spacing', time: 12, method: 'Group' },
+                                { name: 'Pack Line Defense Introduction', skills: 'Defensive positioning, help concepts', setup: 'Walk through pack line positions. Show on-ball, one pass away denial, help side positioning.', keyPoints: 'Pressure ball, deny one pass away, help from pack line', time: 10, method: 'Sequential' },
+                                { name: 'Defensive Stance & Slides', skills: 'Defensive footwork, conditioning', setup: 'Players practice defensive stance, lateral slides, closeouts. Focus on staying low.', keyPoints: 'Stay low, move feet quickly, hands active', time: 8, method: 'Individual' },
+                                { name: 'Box Out Fundamentals', skills: 'Rebounding, positioning', setup: 'Coach shoots, players find opponent and box out. Emphasis on contact and pursuit.', keyPoints: 'Find your man, make contact, go get the ball', time: 8, method: 'Pairs' },
+                                { name: '3v3 Half Court', skills: 'Applying concepts, teamwork', setup: 'Half court 3v3 emphasizing drives and defensive positioning.', keyPoints: 'Attack on offense, help on defense', time: 20, method: 'Groups of 6' },
+                                { name: '5v5 Scrimmage', skills: 'Game application', setup: 'Full team scrimmage with coach stops for teaching.', keyPoints: 'Apply what we learned today', time: 10, method: 'Full team' }
                             ]
                         },
                         {
                             name: 'Practice 2',
                             drills: [
-                                { name: 'Dynamic Warm-up: Red Light/Green Light', skills: 'Agility, quickness, ball control, reactions', setup: 'Players dribble on "green light", freeze in defensive stance on "red light".', keyPoints: 'Control your ball, quick reactions, proper stance!', time: 10, method: 'Group' },
-                                { name: 'Station A: Dribbling Progression (Weak Hand Emphasis)', skills: 'Ball control, weak hand development, moving dribble', setup: 'Stationary → walking → jogging. Add weak hand emphasis.', keyPoints: 'Keep ball low, protect with body, use both hands.', time: 10, method: 'Individual' },
-                                { name: 'Station B: Weave Passing (3-player)', skills: 'Passing accuracy, timing, communication, movement', setup: 'Three players per group, moving down court passing in a weave pattern. Start slow, no defense.', keyPoints: '"Communicate!" "Pass ahead!" "Cut hard!" Emphasize timing of cuts and passes.', time: 10, method: 'Small Groups' },
-                                { name: 'Station C: Mikan Drill & Layups (Both Hands)', skills: 'Layup mechanics, hand-eye coordination, quick shots', setup: 'Players alternate right and left hand layups under basket, collecting own rebound. Focus on proper footwork for both sides.', keyPoints: 'Quick reps, soft touch, use backboard. Right-left for right hand, left-right for left hand.', time: 10, method: 'Small Groups' },
-                                { name: 'Offensive Concept: Pass & Cut Progression', skills: 'Movement without ball, offensive reads, cutting to score', setup: 'Players in 5-out. Passer cuts to the basket looking for a return pass, then fills an open spot. Emphasize cutting hard.', keyPoints: '"Cut to score!" "Don\'t just stand there!" "Fill the open spot quickly!"', time: 8, method: 'Sequential' },
-                                { name: 'Defensive Concept: On-Ball Pressure & Force Outside', skills: 'On-ball defense, footwork, forcing direction', setup: 'Players pair up with a ball. Defender practices staying in front, forcing dribbler towards the sideline or baseline, keeping them out of the "pack line" area.', keyPoints: '"Stay low!" "Force sideline/baseline!" "Eyes on the chest!" "Active hands!"', time: 7, method: 'Small Groups' },
-                                { name: 'Small-Sided Games: 3v3 with Rules (2 Passes)', skills: 'Teamwork, passing, offensive movement', setup: 'Groups of 6. Must make 2 passes before shooting. Coach emphasizes working together and involving all players.', keyPoints: '"Work together, everyone touches ball!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 with Substitutions', skills: 'Game flow, equal playing time, teamwork', setup: 'Practice substitution patterns, equal playing time. Coach emphasizes hustling on and off court.', keyPoints: '"Hustle on and off court, cheer teammates!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review passing, movement, teamwork.', keyPoints: 'Reinforce a positive attitude and effort. "How did we help each other?"', time: 5, method: 'Sequential' }
+                                { name: 'Dynamic Warm-up: Red Light/Green Light', skills: 'Ball control, reactions', setup: 'Dribble on green, defensive stance on red. Add variations.', keyPoints: 'Quick reactions and proper stance', time: 10, method: 'Group' },
+                                { name: 'Drive & Fill with Token Defense', skills: 'Reading defense, passing', setup: 'Add light defense on ball handler, practice kick-out passes.', keyPoints: 'See the helper and make the pass', time: 12, method: 'Small Groups' },
+                                { name: 'DHO Introduction', skills: 'Handoff technique', setup: 'Partners practice dribble handoffs, focus on showing ball.', keyPoints: 'Show the ball clearly, receive and go', time: 10, method: 'Pairs' },
+                                { name: 'Pack Line Shell Drill', skills: 'Team defense, rotations', setup: '4v4 shell drill focusing on pack line principles and rotations.', keyPoints: 'Move on the pass, communicate constantly', time: 12, method: 'Groups of 8' },
+                                { name: 'Closeout Drill', skills: 'Contesting shots', setup: 'Sprint to close out on shooter, chop steps, high hands.', keyPoints: 'Sprint two-thirds, chop steps, contest high', time: 8, method: 'Pairs' },
+                                { name: 'Rebounding War', skills: 'Competitive rebounding', setup: 'Coach shoots, both teams fight for rebound. Winners stay on offense.', keyPoints: 'Want it more, be physical, secure ball', time: 10, method: 'Groups of 6' },
+                                { name: '4v4 Shell to Live', skills: 'Defensive concepts to game', setup: 'Start with shell passing, go live on command.', keyPoints: 'Maintain defensive principles when live', time: 18, method: 'Groups of 8' },
+                                { name: '5v5 with Emphasis', skills: 'Game application', setup: 'Scrimmage emphasizing defensive effort and rebounding.', keyPoints: 'Defense and rebounding win games', time: 10, method: 'Full team' }
                             ]
                         }
                     ]
@@ -310,29 +278,27 @@
                         {
                             name: 'Practice 1',
                             drills: [
-                                { name: 'Dynamic Warm-up: Mirror Dribbling', skills: 'Agility, quickness, ball control, mirroring', setup: 'Partners face each other, one leads dribbling movements while the other mirrors. Switch roles.', keyPoints: 'Match your partner, protect your ball, keep eyes up!', time: 10, method: 'Pairs' },
-                                { name: 'Station A: Dribbling: Pound Dribble & Control', skills: 'Ball control, strength, protecting the ball', setup: 'Players dribble hard with one hand (pound dribble), then switch. Practice shielding the ball with their body from an imaginary defender.', keyPoints: '"Dribble like you mean it!" "Protect the ball!" "Keep it low and close!"', time: 10, method: 'Small Groups' },
-                                { name: 'Station B: Passing: Rapid Fire (Circle Passing)', skills: 'Passing accuracy, quick decision-making, communication', setup: 'Players form a circle. One player in middle. Middle player passes to outside player, gets ball back, passes to next. Increase speed.', keyPoints: '"Quick hands!" "Loud communication!" "Step into the pass!"', time: 10, method: 'Small Groups' },
-                                { name: 'Station C: Triple Threat & Shot Fake', skills: 'Offensive footwork, decision-making, fakes', setup: 'Players in triple threat stance (catch, pivot). Practice jab step, shot fake, then either a drive (1 dribble) or a pass. Don\'t dribble immediately.', keyPoints: '"Strong stance!" "One motion to fake!" "Eyes up!"', time: 10, method: 'Small Groups' },
-                                { name: 'Offensive Concept: Dribble Drive & Kick/Dish', skills: 'Dribble penetration, vision, passing out of drive', setup: 'Coach passes to player on perimeter. Player drives to basket. If defense collapses (coach acts as defender), player kicks out to another perimeter player or dishes to a cutting teammate.', keyPoints: '"Attack the gap!" "Head up on the drive!" "Find the open player!"', time: 8, method: 'Sequential/Small Groups' },
-                                { name: 'Defensive Concept: Pack Line Positioning (1 Pass Away)', skills: 'Off-ball defense, court awareness, denial', setup: 'Players in pairs. One offensive player (with ball), one defender. Defender practices positioning inside the "pack line" while denying a direct pass to their man. Emphasize "jump to the ball" when it moves.', keyPoints: '"Head on a swivel!" "Hand in the passing lane!" "Stay inside the pack line!" "Jump to the ball!"', time: 7, method: 'Small Groups' },
-                                { name: 'Small-Sided Games: 3v3 Defense Focus', skills: 'Defensive effort, communication, applying Pack Line', setup: 'Groups of 6. Points for defensive stops, not just scoring. Coach emphasizes defensive stance, hands up, and working together.', keyPoints: '"Get stops, hands up, work together!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 with Defense Emphasis', skills: 'Game application, defensive hustle, Pack Line principles', setup: 'Full team scrimmage. Emphasize defensive effort over offense. Coach reinforces Pack Line rules during play.', keyPoints: '"Defense wins games, hustle back!" "Pack the paint!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review defensive stance, close-outs.', keyPoints: 'Acknowledge effort and improvement in specific areas. "What makes good defense?"', time: 5, method: 'Sequential' }
+                                { name: 'Dynamic Warm-up: Mirror Dribbling', skills: 'Ball control, mirroring', setup: 'Partners face each other, one leads dribbling while other mirrors.', keyPoints: 'Match your partner while protecting ball', time: 10, method: 'Pairs' },
+                                { name: 'Attack & Kick Drill', skills: 'Drive and pass', setup: 'Drive to basket, jump stop, pass to corner or wing.', keyPoints: 'Head up on drive, find open teammate', time: 12, method: 'Individual' },
+                                { name: 'Basic Screening Angles', skills: 'Screen technique', setup: 'Practice setting screens with proper angles and base.', keyPoints: 'Wide base, proper angle, hold still', time: 10, method: 'Pairs' },
+                                { name: 'Help & Recover', skills: 'Help defense, recovery', setup: 'Practice helping on drives and recovering to shooter.', keyPoints: 'Help early, recover quickly with high hands', time: 10, method: 'Groups of 3' },
+                                { name: 'Defensive Rebounding Drill', skills: 'Boxing out, securing rebounds', setup: 'Emphasis on finding man, making contact, pursuing ball.', keyPoints: 'Hit first, seal out, go get ball', time: 10, method: 'Groups of 4' },
+                                { name: 'Transition Defense', skills: 'Getting back, matching up', setup: 'Sprint back drills, finding matchups quickly.', keyPoints: 'Sprint back, stop ball, communicate', time: 8, method: 'Full team' },
+                                { name: '3v3 with Rebounds', skills: 'Game rebounding', setup: 'Bonus points for offensive rebounds.', keyPoints: 'Crash boards on both ends', time: 20, method: 'Groups of 6' },
+                                { name: '5v5 Transition', skills: 'Fast break offense and defense', setup: 'Emphasis on transition both ways.', keyPoints: 'Push pace on offense, get back on defense', time: 10, method: 'Full team' }
                             ]
                         },
                         {
                             name: 'Practice 2',
                             drills: [
-                                { name: 'Dynamic Warm-up: Dribble Knockout', skills: 'Agility, quickness, ball control, aggression', setup: 'Players dribble in a circle, try to knock others\' balls out while protecting their own.', keyPoints: 'Protect and attack, keep dribbling under pressure!', time: 10, method: 'Group' },
-                                { name: 'Station A: Dribbling: Two-Ball Dribbling (Moving)', skills: 'Advanced ball control, hand-eye coordination', setup: 'Players dribble two balls simultaneously (alternating or synchronous) while walking or jogging. Progress to dribbling around cones.', keyPoints: '"Control both!" "Keep heads up!"', time: 10, method: 'Small Groups' },
-                                { name: 'Station B: Partner Passing (Full Court)', skills: 'Passing on the move, communication, court vision', setup: 'Players in pairs. One starts with ball on baseline, passes to partner at half-court, partner passes back, etc., moving full court. Focus on leading passes.', keyPoints: '"Lead your receiver!" "Hard, crisp passes!" "Communicate where you want the ball!"', time: 10, method: 'Small Groups' },
-                                { name: 'Station C: Jump Stops & Pivots to Shot', skills: 'Footwork, balance, shooting mechanics from live action', setup: 'Players dribble, execute jump stop (two-foot or one-foot), pivot, and take a shot (form shot or short jump shot).', keyPoints: '"Land balanced!" "Square to the basket!" "Good follow-through!"', time: 10, method: 'Small Groups' },
-                                { name: 'Offensive Concept: BLOB (Baseline Out-of-Bounds) "Quick In-Out" Walk-through', skills: 'Inbounding, cutting, quick scoring opportunity', setup: 'Walk through the "Quick In-Out" BLOB play. Emphasize setup and cuts. Practice execution against light defense.', keyPoints: '"Get the ball in!" "Cut hard!" "Be ready to shoot or drive!"', time: 8, method: 'Sequential/Small Groups' },
-                                { name: 'Defensive Concept: Fast Break Defense (2-on-1)', skills: 'Transition defense, communication, protecting rim', setup: 'Run 2 offensive players vs 1 defender. Offensive players try to score on a fast break. Defender sprints back to get between ball and basket, forcing a tough shot or pass.', keyPoints: '"Sprint back!" "Protect the rim!" "Force outside!"', time: 7, method: 'Small Groups' },
-                                { name: 'Small-Sided Games: 3v3 with BLOB Integration', skills: 'Applying concepts, teamwork, executing ATOs, defensive responsibility', setup: 'Run 3-on-3. Incorporate live BLOB situations after scores or dead balls. Coach emphasizes proper execution of concepts.', keyPoints: '"Execute the BLOB!" "Talk on defense!" "Pack the paint!"', time: 20, method: 'Small Groups' },
-                                { name: 'Scrimmage: 5v5 with Movement', skills: 'Game application, offensive movement, defensive principles', setup: 'Full team scrimmage focusing on offensive movement and defensive principles. Coach encourages constant motion and Pack Line adherence.', keyPoints: '"Keep moving, cut hard!" "Pack the paint, deny middle!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review cutting, defensive help.', keyPoints: 'Recognize good execution of specific drills/concepts. "Why do we cut after passing?"', time: 5, method: 'Sequential' }
+                                { name: 'Dynamic Warm-up: Dribble Knockout', skills: 'Ball protection, aggression', setup: 'Dribble in circle, knock out others balls while protecting own.', keyPoints: 'Protect your ball while attacking others', time: 10, method: 'Group' },
+                                { name: '5v0 Drive & Fill', skills: 'Team offensive flow', setup: 'Walk through drive and fill from both sides.', keyPoints: 'Everyone moves with purpose', time: 10, method: 'Sequential' },
+                                { name: 'BLOB Introduction', skills: 'Baseline inbounds', setup: 'Walk through basic BLOB play using zoom concepts.', keyPoints: 'Quick execution, be ready to score', time: 10, method: 'Sequential' },
+                                { name: 'Pack Line Communication', skills: 'Defensive talk', setup: 'Practice calling out positions and help.', keyPoints: 'Loud clear communication helps everyone', time: 8, method: 'Groups of 4' },
+                                { name: 'Contest & Box Out', skills: 'Shot defense to rebound', setup: 'Contest shot, immediately box out for rebound.', keyPoints: 'Contest shot then find your man', time: 10, method: 'Groups of 4' },
+                                { name: '2v1 Fast Break', skills: 'Advantage situations', setup: '2 offensive vs 1 defender, practice quick decisions.', keyPoints: 'Attack defender, make them choose', time: 12, method: 'Groups of 3' },
+                                { name: '3v3 Pack Line', skills: 'Defensive application', setup: 'Focus on pack line principles in 3v3.', keyPoints: 'Pack the paint, force outside shots', time: 20, method: 'Groups of 6' },
+                                { name: '5v5 with BLOB', skills: 'Inbound execution', setup: 'Practice BLOB after made baskets.', keyPoints: 'Execute our play quickly', time: 10, method: 'Full team' }
                             ]
                         }
                     ]
@@ -343,29 +309,27 @@
                         {
                             name: 'Practice 1',
                             drills: [
-                                { name: 'Dynamic Warm-up: Sharks and Minnows', skills: 'Agility, quickness, ball control, head up', setup: 'Players dribble across court while "sharks" (coaches or designated players) try to steal balls. If ball is stolen, do 5 jumping jacks.', keyPoints: '"Protect ball, head up, escape!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Dribbling: Crossovers & Between the Legs', skills: 'Advanced dribble moves, ball control', setup: 'Set up cones. Players practice crossover dribbles and then between-the-legs dribbles around and through cones.', keyPoints: 'Low, explosive moves. Stay balanced.', time: 10, method: 'Small Groups' },
-                                { name: 'Station B: Passing Under Pressure', skills: 'Passing accuracy, quick decision-making under pressure', setup: 'Use 2-on-1 or 3-on-2 drills where the pass needs to be precise to beat a defender. Defender is active.', keyPoints: '"Look before you pass!" "Strong passes through gaps!" "No lazy passes!"', time: 10, method: 'Small Groups' },
-                                { name: 'Station C: Contested Shots', skills: 'Shooting form under pressure, confidence', setup: 'Shooter, defender contesting with pad or hand (light contact).', keyPoints: '"Shoot over defense, follow through!" "Maintain form!"', time: 10, method: 'Pairs' },
-                                { name: 'Offensive Concept: Backdoor Cuts', skills: 'Reading defense, movement without ball, quick cuts', setup: 'Players in 5-out. Coach acts as a defender, overplaying the passer. Offensive player executes sharp backdoor cut to basket.', keyPoints: '"If they play too close, cut hard!" "Look for the pass quickly!"', time: 8, method: 'Sequential/Small Groups' },
-                                { name: 'Defensive Concept: Defensive Rebounding & Box Out', skills: 'Rebounding, boxing out, aggression for ball', setup: 'Coach shoots. Players immediately find an opponent, execute a box out (get between opponent and basket), then go for the rebound.', keyPoints: '"Find a body!" "Get low, wide base!" "Go get the ball!"', time: 7, method: 'Small Groups' },
-                                { name: 'Small-Sided Games: 3v3 with Inbounds', skills: 'Applying concepts, teamwork, executing inbound plays', setup: 'Groups of 6. Each possession starts with an inbound play (coach calls BLOB or SLOB).', keyPoints: '"Run the play, then play basketball!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 with Inbounds', skills: 'Game application, executing plays under pressure', setup: 'Practice inbound situations during scrimmage. Coach calls out BLOB or SLOB on dead balls.', keyPoints: '"Run our play, stay calm!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review inbound play, defensive communication.', keyPoints: 'Highlight teamwork and collective effort. "What\'s our inbound play?"', time: 5, method: 'Sequential' }
+                                { name: 'Screening Footwork Warm-up', skills: 'Screen angles, positioning', setup: 'Practice approach angles for down screens.', keyPoints: 'Sprint to spot, wide base, hold position', time: 10, method: 'Individual' },
+                                { name: 'Pin-down Screen Drill', skills: 'Down screen execution', setup: 'Wing screens for corner, corner cuts to wing.', keyPoints: 'Screener calls name, cutter waits then explodes', time: 12, method: 'Pairs' },
+                                { name: '2-Player Zoom', skills: 'Basic zoom sequence', setup: 'Screen, cut, receive pass, attack for layup.', keyPoints: 'Screen, sprint, score', time: 12, method: 'Pairs' },
+                                { name: 'Shell Drill Advanced', skills: 'Pack Line rotations', setup: 'Add more complex rotations and help scenarios.', keyPoints: 'Trust your help, rotate properly', time: 12, method: 'Groups of 8' },
+                                { name: 'Offensive Rebounding', skills: 'Crashing boards', setup: 'Practice pursuing offensive rebounds for putbacks.', keyPoints: 'Assume shot will miss, crash hard', time: 8, method: 'Groups of 3' },
+                                { name: '3v0 Zoom Walkthrough', skills: 'Full zoom sequence', setup: 'Point passes to wing, screens for corner, DHO.', keyPoints: 'Everyone has a specific job', time: 10, method: 'Groups of 3' },
+                                { name: '3v3 Zoom Only', skills: 'Live zoom execution', setup: 'Must run zoom action each possession.', keyPoints: 'Trust the action, sprint off screen', time: 16, method: 'Groups of 6' },
+                                { name: '5v5 Half Court', skills: 'Controlled scrimmage', setup: 'Focus on executing zoom and pack line.', keyPoints: 'Execute on both ends', time: 10, method: 'Full team' }
                             ]
                         },
                         {
                             name: 'Practice 2',
                             drills: [
-                                { name: 'Dynamic Warm-up: Partner Tag (Dribbling)', skills: 'Agility, quickness, ball control, teamwork', setup: 'Partners dribble holding hands, try to tag other pairs while maintaining dribble.', keyPoints: '"Work together, communicate, control your ball!"', time: 10, method: 'Pairs' },
-                                { name: 'Station A: Dribbling: Weak Hand Focus', skills: 'Weak hand development, ball control', setup: 'All dribbling with weak hand only. Encourage attempts at moves with weak hand.', keyPoints: '"Challenge yourself, weak hand strong!"', time: 10, method: 'Individual' },
-                                { name: 'Station B: Movement Passing', skills: 'Passing on the move, court vision, flow', setup: 'Players pass and follow their pass, keeping the ball moving and maintaining spacing.', keyPoints: '"Pass and move, follow the ball!"', time: 10, method: 'Groups of 4' },
-                                { name: 'Station C: Layup Variations', skills: 'Layup mechanics, finishing with both hands', setup: 'Practice right hand, left hand, and reverse layups (basic introduction for reverse).', keyPoints: '"Use both hands, soft touch, use the backboard!"', time: 10, method: 'Individual' },
-                                { name: 'Offensive Concept: SLOB (Sideline Out-of-Bounds) "Give and Go" Walk-through', skills: 'Inbounding, quick cutting, scoring opportunity', setup: 'Walk through the "Give and Go" SLOB play. Emphasize quick pass-back and cut.', keyPoints: '"Get the ball in!" "Cut hard immediately after the pass!"', time: 8, method: 'Sequential/Small Groups' },
-                                { name: 'Defensive Concept: Transition Defense (3-on-2)', skills: 'Transition defense, communication, protecting rim', setup: 'Run 3 offensive players vs 2 defenders. Offensive players try to score on a fast break. Defenders sprint back to get between ball and basket, communicating who has who.', keyPoints: '"Sprint back!" "Protect the rim!" "Communicate!"', time: 7, method: 'Small Groups' },
-                                { name: 'Small-Sided Games: 3v3 Inbound Scoring', skills: 'Executing plays, scoring from dead balls', setup: 'Groups of 6. Score directly from inbound plays for bonus points. Coach emphasizes executing the play first.', keyPoints: '"Execute the play, look for easy scores!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 with Both Inbound Plays', skills: 'Game application, executing plays under pressure', setup: 'Practice both sideline and baseline inbounds during scrimmage. Coach calls out specific plays.', keyPoints: '"Know your plays, execute under pressure!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review both inbound plays, motion concepts.', keyPoints: 'Praise effort in transition and defensive hustling. "Two plays, when do we use each?"', time: 5, method: 'Sequential' }
+                                { name: 'DHO Technique Warm-up', skills: 'Handoff mechanics', setup: 'Partners practice handoffs with movement.', keyPoints: 'Show ball clearly, clean exchange', time: 10, method: 'Pairs' },
+                                { name: 'Zoom Reads Introduction', skills: 'Reading defense', setup: 'If defender goes under shoot, over drive.', keyPoints: 'See the defense and make right play', time: 12, method: 'Small Groups' },
+                                { name: '3-Player Zoom DHO', skills: 'Complete zoom action', setup: 'Full sequence with screen, cut, DHO.', keyPoints: 'Timing is everything', time: 12, method: 'Groups of 3' },
+                                { name: 'Defensive Slides Advanced', skills: 'Defensive conditioning', setup: 'Complex slide patterns, add ball.', keyPoints: 'Stay low throughout, quick feet', time: 8, method: 'Individual' },
+                                { name: 'Team Rebounding Drill', skills: 'All 5 boxing out', setup: 'All 5 defenders must box out on shot.', keyPoints: 'Everyone boxes out, everyone rebounds', time: 10, method: 'Full team' },
+                                { name: 'SLOB Introduction', skills: 'Sideline inbounds', setup: 'Install sideline out of bounds play.', keyPoints: 'Get ball in quickly and attack', time: 10, method: 'Sequential' },
+                                { name: '4v4 Half Court', skills: 'Zoom with defense', setup: 'Emphasis on zoom execution vs defense.', keyPoints: 'Execute against pressure', time: 18, method: 'Groups of 8' },
+                                { name: '5v5 with Inbounds', skills: 'Game situations', setup: 'Practice both BLOB and SLOB.', keyPoints: 'Know both plays, execute under pressure', time: 10, method: 'Full team' }
                             ]
                         }
                     ]
@@ -376,29 +340,27 @@
                         {
                             name: 'Practice 1',
                             drills: [
-                                { name: 'Dynamic Warm-up: Numbers Dribbling', skills: 'Agility, quickness, ball control, reactions', setup: 'Coach calls out numbers 1-5. Players dribble to that basket/location and back.', keyPoints: '"Listen and react, control your ball!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Dribbling: Jab and Go', skills: 'Offensive footwork, aggression, decision-making', setup: 'Players practice a jab step then drive, or jab step then shoot. Emphasize selling the fake.', keyPoints: '"Sell the fake, be aggressive!"', time: 10, method: 'Individual' },
-                                { name: 'Station B: Pass and Replace', skills: 'Offensive movement, spacing, court awareness', setup: 'Players in 5-out. Pass to any player, then immediately replace their position.', keyPoints: '"Pass and fill, keep moving!"', time: 10, method: 'Groups of 5' },
-                                { name: 'Station C: Close Range Shooting Games', skills: 'Shooting accuracy, fun, competition', setup: 'Shooting games: Around the World, Horse, 21 (from close range).', keyPoints: '"Have fun, work on shooting fundamentals!"', time: 10, method: 'Pairs/Individual' },
-                                { name: 'Offensive Concept: Basic Motion (Pass & Cut, Fill, Backdoor)', skills: 'Motion offense fundamentals, decision-making', setup: '5-on-0 motion: pass-and-cut, fill spots, backdoor cuts. Coach guides movement.', keyPoints: '"Pass and do something, keep moving!" "Read the defense!"', time: 8, method: 'Sequential' },
-                                { name: 'Defensive Concept: Pack Line Positioning (Shell Drill)', skills: 'Off-ball defense, help positioning, communication', setup: '4 offensive players pass the ball, 4 defenders practice help positioning inside the pack line. Focus on "jump to the ball" and recovery.', keyPoints: '"Help inside the line, pressure the ball!" "Communicate!"', time: 7, method: 'Groups of 4' },
-                                { name: 'Small-Sided Games: 3v3 Motion Rules', skills: 'Applying motion offense, decision-making', setup: 'Groups of 6. Must cut after every pass, no standing still. Coach reinforces motion rules.', keyPoints: '"Cut every pass, fill the spots!" "Keep moving!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 Motion vs Pack Line', skills: 'Game application, offensive flow, defensive discipline', setup: 'Run motion offense against Pack Line defense. Emphasize both offensive and defensive concepts.', keyPoints: '"Run our offense, help on defense!" "Pack the paint!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review motion rules, Pack Line concepts.', keyPoints: 'Focus on team unity and effort. "What do we do after we pass?"', time: 5, method: 'Sequential' }
+                                { name: 'Zoom Review Warm-up', skills: 'Basic zoom reinforcement', setup: 'Quick walkthrough of zoom action.', keyPoints: 'Perfect our timing and execution', time: 10, method: 'Sequential' },
+                                { name: 'Slip Screen Counter', skills: 'Reading switching defense', setup: 'If defense switches, screener slips to basket.', keyPoints: 'Read the switch and slip to rim', time: 10, method: 'Groups of 3' },
+                                { name: 'Reject Screen Option', skills: 'Counter move', setup: 'Cutter fakes using screen, goes opposite.', keyPoints: 'Sell the screen then go opposite', time: 10, method: 'Groups of 3' },
+                                { name: 'Pack Line vs Screens', skills: 'Defending screens', setup: 'Practice defending zoom action with pack line.', keyPoints: 'Communicate and help on screens', time: 12, method: 'Groups of 6' },
+                                { name: 'Putback Drill', skills: 'Offensive rebounding', setup: 'Miss on purpose, offensive player gets putback.', keyPoints: 'Quick second jump, finish strong', time: 8, method: 'Groups of 3' },
+                                { name: 'Backdoor on Denial', skills: 'Counter pressure', setup: 'If overplayed, cut backdoor for layup.', keyPoints: 'See overplay and cut hard', time: 10, method: 'Pairs' },
+                                { name: 'Zoom Decision Drill', skills: 'Reading and reacting', setup: 'Defense shows different looks, offense reacts.', keyPoints: 'Read and react quickly', time: 20, method: 'Groups of 4' },
+                                { name: '5v5 Zoom Emphasis', skills: 'Game application', setup: 'Must use zoom or counter each possession.', keyPoints: 'Trust your reads', time: 10, method: 'Full team' }
                             ]
                         },
                         {
                             name: 'Practice 2',
                             drills: [
-                                { name: 'Dynamic Warm-up: Follow the Leader (Dribbling)', skills: 'Agility, quickness, ball control, mirroring', setup: 'Players dribble following a leader through various movements (crossovers, spins, changes of pace).', keyPoints: '"Stay with the leader, control your ball!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Dribbling: Two-Ball Dribbling (Advanced)', skills: 'Advanced ball control, coordination, focus', setup: 'Dribble with both hands simultaneously (alternating or synchronous). Advanced players can add cones or movement.', keyPoints: '"Control both balls, keep them bouncing, look up!"', time: 10, method: 'Individual' },
-                                { name: 'Station B: Screen Setting Fundamentals', skills: 'Screening technique, body positioning', setup: 'Partners practice setting solid screens (on-ball and off-ball), holding position. Emphasize wide base, no moving screen.', keyPoints: '"Wide base, hold still, help teammate!"', time: 10, method: 'Pairs' },
-                                { name: 'Station C: Shooting off Screens', skills: 'Shooting form, movement shooting, quick release', setup: 'Shooter curls around a screen (set by coach or teammate) for a shot. Focus on catching ready to shoot.', keyPoints: '"Come off screen ready, quick shot!"', time: 10, method: 'Groups of 3' },
-                                { name: 'Offensive Concept: Screen Away Introduction', skills: 'Off-ball screening, creating space', setup: 'Add screen away to motion offense. Focus on players without the ball setting screens to free up teammates.', keyPoints: '"Screen away from ball, create for others!"', time: 8, method: 'Sequential' },
-                                { name: 'Defensive Concept: Basic On-Ball Screen Defense', skills: 'Defending screens, communication, recovery', setup: 'Run 2-on-2. One offensive player sets an on-ball screen. Defenders practice "going under" or a simple "hedge and recover" to stay with their man. Emphasize communication ("Screen!").', keyPoints: '"Communicate screen!" "Stay with your man!" "Recover quickly!"', time: 7, method: 'Small Groups' },
-                                { name: 'Small-Sided Games: 3v3 Screen Usage', skills: 'Applying screens, offensive flow', setup: 'Groups of 6. Points for scoring off screens. Coach encourages players to use screens effectively.', keyPoints: '"Use screens, create for each other!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 Full Motion', skills: 'Game application, offensive flow, defensive adjustments', setup: 'Motion offense with all concepts vs. defense. Coach encourages using screens and reacting to defense.', keyPoints: '"Run everything we\'ve learned!" "Combine all motion concepts!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review screening, motion offense.', keyPoints: 'Praise effort in transition and defensive hustling. "How do screens help us?"', time: 5, method: 'Sequential' }
+                                { name: 'Dynamic Warm-up', skills: 'Movement prep', setup: 'Include screening and cutting movements.', keyPoints: 'Game-like movements to prepare', time: 10, method: 'Group' },
+                                { name: 'Drive to Zoom Combo', skills: 'Combining actions', setup: 'Start with drive, if stopped trigger zoom.', keyPoints: 'Attack first then zoom if needed', time: 12, method: 'Groups of 5' },
+                                { name: 'Help Rotation Drill', skills: 'Defensive rotations', setup: 'Practice complex help rotations.', keyPoints: 'Rotate as a team, communicate', time: 10, method: 'Groups of 5' },
+                                { name: 'Box Out to Outlet', skills: 'Defensive rebound to transition', setup: 'Box out, rebound, outlet pass for break.', keyPoints: 'Rebound and start the break', time: 10, method: 'Groups of 4' },
+                                { name: 'ATO Situations', skills: 'Special plays', setup: 'Practice timeout plays and special situations.', keyPoints: 'Execute precisely after timeout', time: 10, method: 'Sequential' },
+                                { name: 'Competitive 3v3', skills: 'Small-sided games', setup: 'Games to 5, must use zoom to score.', keyPoints: 'Execute under competitive pressure', time: 18, method: 'Groups of 6' },
+                                { name: 'Free Throws', skills: 'Pressure shooting', setup: 'Team consequences for misses.', keyPoints: 'Develop consistent routine', time: 10, method: 'Full team' },
+                                { name: '5v5 Scrimmage', skills: 'Full application', setup: 'Apply all concepts learned.', keyPoints: 'Play smart basketball', time: 10, method: 'Full team' }
                             ]
                         }
                     ]
@@ -409,29 +371,26 @@
                         {
                             name: 'Practice 1',
                             drills: [
-                                { name: 'Dynamic Warm-up: Traffic Cones (Dribbling)', skills: 'Agility, quickness, ball control in traffic', setup: 'Players dribble through multiple cones, avoiding other players and cones. Emphasize head up.', keyPoints: '"Head up, change direction, avoid traffic!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Game Dribbling', skills: 'Dribbling under pressure, game speed', setup: 'Dribble through cones with light defensive pressure (coach or teammate), game-speed movements.', keyPoints: '"Game speed, protect ball, be strong!"', time: 10, method: 'Individual' },
-                                { name: 'Station B: Post Feeding (Adapted for 5-Out)', skills: 'Passing accuracy, entry passes, cutting', setup: 'Perimeter player feeds a "post" (a target player or cone in the paint), then cuts. Focus on accurate passes into tight spaces.', keyPoints: '"Hit the target, make good passes, then cut!"', time: 10, method: 'Groups of 3' },
-                                { name: 'Station C: Perimeter Shooting (Different Spots)', skills: 'Shooting form, range, consistency', setup: 'Shooting from 5 different close-to-mid range spots around basket. Focus on consistent form.', keyPoints: '"Same form every time, extend range gradually!"', time: 10, method: 'Individual' },
-                                { name: 'Offensive Concept: ATO Play Review & Execution', skills: 'Reviewing and executing ATOs under pressure', setup: 'Review both BLOB and SLOB plays. Run them against light defense, emphasizing quick execution and options.', keyPoints: '"Execute crisply!" "Be ready for the pass!"', time: 8, method: 'Sequential/Small Groups' },
-                                { name: 'Defensive Concept: Defensive Communication', skills: 'Verbal communication, court awareness', setup: 'Defenders call out offensive players\' names and positions. Practice calling "Ball!", "Deny!", "Help!".', keyPoints: '"Talk on defense, help each other!" "Be loud and clear!"', time: 7, method: 'Groups of 4' },
-                                { name: 'Small-Sided Games: 3v3 with Post Integration (Adapted)', skills: 'Offensive flow, decision-making, inside-out play', setup: 'Groups of 6. Must involve a "post touch" (pass to a player cutting into the paint) in every possession before scoring.', keyPoints: '"Get the post involved, work inside-out!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 with ATO Situations', skills: 'Game application, executing plays under pressure', setup: 'Practice ATOs in game situations. Coach calls out scenarios (e.g., "BLOB!").', keyPoints: '"Stay calm, run our play!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review ATO concepts, spacing.', keyPoints: 'Highlight teamwork and collective effort. "When do we use this play?"', time: 5, method: 'Sequential' }
+                                { name: 'Continuous DHO Drill', skills: 'Flow and timing', setup: '3 players continuous handoffs around perimeter.', keyPoints: 'Keep the ball moving smoothly', time: 10, method: 'Groups of 3' },
+                                { name: 'Triple Gap Creation', skills: 'Advanced spacing', setup: 'Create space through movement not standing.', keyPoints: 'Movement creates better spacing', time: 10, method: 'Groups of 5' },
+                                { name: 'Weak Side Actions', skills: 'Away from ball movement', setup: 'Practice patience and timing on weak side.', keyPoints: 'Be ready but stay spaced', time: 10, method: 'Groups of 4' },
+                                { name: 'Defensive Communication', skills: 'Verbal defense', setup: 'Call out all offensive actions loudly.', keyPoints: 'Talk makes defense easier', time: 8, method: 'Groups of 5' },
+                                { name: 'Team Box Out Drill', skills: 'All 5 rebounding', setup: 'All 5 must box out and pursue rebound.', keyPoints: 'Five players boxing out equals rebounds', time: 10, method: 'Full team' },
+                                { name: '5v0 Full Offense', skills: 'All actions combined', setup: 'Drive, zoom, continuous movement.', keyPoints: 'Smooth transitions between actions', time: 12, method: 'Sequential' },
+                                { name: '5v5 Controlled', skills: 'Stop and teach', setup: 'Coach on floor teaching positioning.', keyPoints: 'Learn proper positioning', time: 20, method: 'Full team' },
+                                { name: 'Cool-down Shooting', skills: 'Recovery', setup: 'Light shooting and stretching.', keyPoints: 'Work on shooting form', time: 10, method: 'Individual' }
                             ]
                         },
                         {
                             name: 'Practice 2',
                             drills: [
-                                { name: 'Dynamic Warm-up: Dribble Soccer', skills: 'Agility, quickness, ball control, multi-tasking', setup: 'Players dribble while trying to kick a soccer ball into small goals. Focus on maintaining dribble while distracted.', keyPoints: '"Multi-tasking, have fun, keep your head up!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Post Flash (Adapted)', skills: 'Cutting, receiving, decision-making around paint', setup: 'Player flashes to the elbow or short corner, receives pass, makes decision (shoot, pass, drive).', keyPoints: '"Flash hard, catch and face!" "Be decisive!"', time: 10, method: 'Groups of 3' },
-                                { name: 'Station B: Perimeter Movement (5-Out Flow)', skills: 'Offensive movement, spacing, reacting to ball', setup: 'Perimeter players move (cut, fill, screen away) as the ball moves around the 5-out. Emphasize not watching the ball.', keyPoints: '"Keep moving, don\'t watch the ball!" "Flow together!"', time: 10, method: 'Groups of 4' },
-                                { name: 'Station C: Contested Layups/Shots', skills: 'Finishing under pressure, confidence', setup: 'Close-range shots (layups, short jumpers) with a defender applying light contest.', keyPoints: '"Soft touch, use both hands, shoot over defense!"', time: 10, method: 'Pairs' },
-                                { name: 'Offensive Concept: Screen Away Refinement', skills: 'Off-ball screening, reading defense', setup: 'Refine screen away. Focus on reading the defense (e.g., curling off the screen, flaring out, slipping the screen).', keyPoints: '"Read the defense: curl, pop, slip!" "Screen solid, don\'t move!"', time: 8, method: 'Sequential/Small Groups' },
-                                { name: 'Defensive Concept: Help and Recover (Pack Line)', skills: 'Help defense, recovery speed, communication', setup: 'Defenders practice helping on a drive into the paint from inside the pack line, then quickly recovering to their original player. Emphasize communication.', keyPoints: '"Help and get back, communicate!" "Pack the paint!"', time: 7, method: 'Groups of 3' },
-                                { name: 'Small-Sided Games: 3v3 Inside-Out (Adapted)', skills: 'Offensive flow, decision-making, scoring variety', setup: 'Groups of 6. Start possession with a "paint touch" (pass to a cutter in the lane), then work inside-out.', keyPoints: '"Inside-out basketball, paint first!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 with Offensive Flow', skills: 'Game application, offensive movement, defensive adjustments', setup: 'Full team scrimmage. Emphasize constant offensive movement and defensive adjustments to screens and cuts.', keyPoints: '"Move without the ball!" "Defend the cutter!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review offensive flow, inside-out concepts.', keyPoints: 'Praise effort in transition and defensive hustling. "Why do we go inside first?"', time: 5, method: 'Sequential' }
+                                { name: 'Team Warm-up', skills: 'Energy builder', setup: 'Music, high energy, team chants.', keyPoints: 'Build team energy together', time: 10, method: 'Group' },
+                                { name: 'Zoom Race Competition', skills: 'Competitive execution', setup: 'Teams race to complete perfect zooms.', keyPoints: 'Perfect execution under pressure', time: 12, method: 'Groups of 6' },
+                                { name: 'Defensive Shell Competition', skills: 'Competitive defense', setup: 'Points for stops in shell drill.', keyPoints: 'Defense wins competitions', time: 12, method: 'Groups of 8' },
+                                { name: 'Rebounding Competition', skills: 'Competitive rebounding', setup: 'Teams compete for total rebounds.', keyPoints: 'Every rebound matters', time: 10, method: 'Groups of 6' },
+                                { name: '3v3 Tournament', skills: 'Small-sided competition', setup: 'Round robin games to 7.', keyPoints: 'Compete and execute', time: 26, method: 'Groups of 6' },
+                                { name: 'King of the Court', skills: '1v1 competition', setup: 'Winners stay, losers rotate.', keyPoints: 'Individual competition builds toughness', time: 10, method: 'Individual' },
+                                { name: 'Free Throw Contest', skills: 'Pressure shooting', setup: 'Elimination tournament.', keyPoints: 'Make shots under pressure', time: 10, method: 'Individual' }
                             ]
                         }
                     ]
@@ -442,29 +401,27 @@
                         {
                             name: 'Practice 1',
                             drills: [
-                                { name: 'Dynamic Warm-up: Simon Says Basketball', skills: 'Agility, quickness, listening, basketball movements', setup: 'Coach calls "Simon Says" basketball-specific movements (e.g., dribble, defensive slide, jump stop).', keyPoints: '"Listen and react, basketball movements!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Ball Screen Setting Fundamentals', skills: 'Screening technique, proper angle, timing', setup: 'Pairs practice setting ball screens (stationary), proper angle and timing. Emphasize wide base, holding still.', keyPoints: '"Good angle, hold screen, help teammate!"', time: 10, method: 'Pairs' },
-                                { name: 'Station B: Pick and Roll (Basic)', skills: 'Using screens, rolling, passing out of roll', setup: 'Ball handler, screener, defender. Practice basic pick and roll: ball handler uses screen, screener rolls to basket. Defender practices going under.', keyPoints: '"Use the screen, roll hard!" "Go under the screen!"', time: 10, method: 'Groups of 3' },
-                                { name: 'Station C: Shot Creation (Off Dribble)', skills: 'Dribble moves, creating space, shooting', setup: 'Individual players create shots off dribble moves (crossover, between legs, behind back) and attack the basket.', keyPoints: '"Be creative, create space!" "Strong finish!"', time: 10, method: 'Individual' },
-                                { name: 'Offensive Concept: Pick and Roll Integration (Basic)', skills: 'Offensive action, spacing around screen', setup: 'Add basic pick and roll to 5-out offense. Focus on the two players involved and others maintaining spacing.', keyPoints: '"Screen and roll, others space!"', time: 8, method: 'Sequential' },
-                                { name: 'Defensive Concept: Defensive Rotations (Basic)', skills: 'Team defense, communication, help and recover', setup: 'Practice basic rotations when help defense is needed (e.g., when a driver is stopped, nearest defender helps, others rotate). Emphasize communication.', keyPoints: '"Rotate and communicate, help each other!"', time: 7, method: 'Groups of 4' },
-                                { name: 'Small-Sided Games: 3v3 Pick and Roll Focus', skills: 'Applying screens, creating opportunities', setup: 'Groups of 6. Points for scoring off pick and roll. Coach encourages using screens effectively.', keyPoints: '"Use screens, create for each other!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 Screen Emphasis', skills: 'Game application, using screens, defending screens', setup: 'Full team scrimmage. Emphasize setting and using screens on offense, and defending them on defense.', keyPoints: '"Set screens, use screens!" "Defend the screen!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review screening concepts.', keyPoints: 'Praise effort in transition and defensive hustling. "What makes a good screen?"', time: 5, method: 'Sequential' }
+                                { name: 'Advanced Warm-up', skills: 'Complex movements', setup: 'Combine dribbling, defensive slides, and shooting motions.', keyPoints: 'Prepare body for complex movements', time: 10, method: 'Group' },
+                                { name: 'Zoom Counters Review', skills: 'All counter options', setup: 'Review slip, reject, backdoor options.', keyPoints: 'Have answers for every defense', time: 12, method: 'Groups of 4' },
+                                { name: 'Live Zoom Reads', skills: 'Decision making', setup: 'Live defense, make correct read.', keyPoints: 'Read the defense correctly', time: 12, method: 'Groups of 4' },
+                                { name: 'Pack Line vs Motion', skills: 'Defensive discipline', setup: 'Defend continuous offensive movement.', keyPoints: 'Stay disciplined in pack line', time: 10, method: 'Groups of 8' },
+                                { name: 'Transition Rebounding', skills: 'Rebound to fast break', setup: 'Defensive rebound immediately to outlet.', keyPoints: 'Start the break with rebounds', time: 10, method: 'Full team' },
+                                { name: 'End of Quarter Situations', skills: 'Time management', setup: 'Practice with shot clock scenarios.', keyPoints: 'Get good shots quickly', time: 10, method: 'Full team' },
+                                { name: '4v4 Cutthroat', skills: 'Competitive application', setup: 'Three teams, winners stay.', keyPoints: 'Execute to stay on court', time: 16, method: 'Groups of 12' },
+                                { name: '5v5 Situational', skills: 'Game situations', setup: 'Various game scenarios.', keyPoints: 'Handle different situations', time: 10, method: 'Full team' }
                             ]
                         },
                         {
                             name: 'Practice 2',
                             drills: [
-                                { name: 'Dynamic Warm-up: Chaos Dribbling', skills: 'Agility, quickness, ball control in crowds', setup: 'All players dribble in a small space, avoiding contact with others. Focus on control in chaos.', keyPoints: '"Control in chaos, protect your ball!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Quick Decisions (Catch & React)', skills: 'Decision-making, quickness, offensive reads', setup: 'Catch and immediately decide: shoot, pass, or drive. Coach can call out a defender or situation.', keyPoints: '"Quick decisions, don\'t hesitate!"', time: 10, method: 'Individual' },
-                                { name: 'Station B: Screen Combinations (Basic)', skills: 'Advanced screening, offensive flow', setup: 'Practice multiple screens in sequence (e.g., down screen followed by a flare screen).', keyPoints: '"Screen for each other, create confusion!"', time: 10, method: 'Groups of 4' },
-                                { name: 'Station C: Pressure Shooting (Quick Release)', skills: 'Shooting under pressure, quick release', setup: 'Shoot with time pressure (e.g., 5 seconds to get a shot off), quick release. Maintain form.', keyPoints: '"Quick shot, same form under pressure!"', time: 10, method: 'Individual' },
-                                { name: 'Offensive Concept: ATO Play Review & Execution (Advanced)', skills: 'Reviewing and executing ATOs under pressure', setup: 'Review both BLOB and SLOB plays. Run them against live defense, emphasizing quick execution and options.', keyPoints: '"Execute crisply!" "Be ready for the pass!"', time: 8, method: 'Sequential/Small Groups' },
-                                { name: 'Defensive Concept: Team Defense & Communication', skills: 'Team defense, communication, handling switches', setup: 'Defend complex plays (e.g., 3-on-3 with screens), communicate switches and help.', keyPoints: '"Talk, switch, help each other!"', time: 7, method: 'Groups of 4' },
-                                { name: 'Small-Sided Games: 3v3 ATO Practice', skills: 'Executing plays, scoring from dead balls', setup: 'Groups of 6. Start possessions with an ATO play. Coach emphasizes running the play, then playing basketball.', keyPoints: '"Run the play, then play basketball!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 ATO Situations', skills: 'Game application, executing plays under pressure', setup: 'Practice ATOs in game situations. Coach calls out scenarios (e.g., "SLOB!").', keyPoints: '"Stay calm, run our play!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review ATO play, when to use it.', keyPoints: 'Praise effort in transition and defensive hustling. "When do we use this play?"', time: 5, method: 'Sequential' }
+                                { name: 'Chaos Dribbling Warm-up', skills: 'Ball control in traffic', setup: 'All players dribble in small space.', keyPoints: 'Control ball in chaos', time: 10, method: 'Group' },
+                                { name: 'Quick Decisions Drill', skills: 'Fast decision making', setup: 'Catch and immediately decide: shoot, pass, drive.', keyPoints: 'Make quick decisions', time: 10, method: 'Individual' },
+                                { name: 'Screen Combinations', skills: 'Multiple screens', setup: 'Practice screens in sequence.', keyPoints: 'Set multiple good screens', time: 10, method: 'Groups of 4' },
+                                { name: 'Defensive Closeout Drill', skills: 'Contest and recover', setup: 'Close out and recover to help.', keyPoints: 'Contest shots and help teammates', time: 10, method: 'Groups of 3' },
+                                { name: 'Offensive Rebound Drill', skills: 'Second chance points', setup: 'Focus on offensive rebounding position.', keyPoints: 'Create second chances', time: 10, method: 'Groups of 4' },
+                                { name: 'ATO Practice', skills: 'After timeout execution', setup: 'Run ATO plays with time pressure.', keyPoints: 'Execute precisely after timeouts', time: 10, method: 'Sequential' },
+                                { name: '3v3 ATO Start', skills: 'Plays to game', setup: 'Start each possession with ATO.', keyPoints: 'Execute plays then play', time: 20, method: 'Groups of 6' },
+                                { name: '5v5 ATO Situations', skills: 'Game application', setup: 'Practice ATOs in game situations.', keyPoints: 'Stay calm and execute', time: 10, method: 'Full team' }
                             ]
                         }
                     ]
@@ -475,29 +432,27 @@
                         {
                             name: 'Practice 1',
                             drills: [
-                                { name: 'Dynamic Warm-up: Relay Races (Basketball Skills)', skills: 'Agility, quickness, competition, skill application', setup: 'Teams compete in basketball skill relays: dribbling, shooting (layups), passing. Focus on speed and accuracy.', keyPoints: '"Compete, have fun, use skills at speed!"', time: 10, method: 'Teams' },
-                                { name: 'Station A: Advanced Dribbling (Combo Moves)', skills: 'Advanced dribble moves, creativity, change of pace', setup: 'Combination moves (crossover-between legs), hesitation, change of pace. Encourage creativity.', keyPoints: '"Mix it up, keep defense guessing!" "Be creative!"', time: 10, method: 'Individual' },
-                                { name: 'Station B: Motion Concepts (All Actions)', skills: 'Offensive flow, reading defense, decision-making', setup: 'Practice all motion concepts: cuts, screens, spacing, fill. Coach provides light defensive pressure to encourage reads.', keyPoints: '"Read the defense, make good decisions!" "Flow together!"', time: 10, method: 'Groups of 5' },
-                                { name: 'Station C: Game Shooting (Off Movement)', skills: 'Shooting accuracy, shooting off movement, game speed', setup: 'Shooting off movement, off screens, under light pressure. Focus on game shots at game speed.', keyPoints: '"Game shots, game speed!" "Catch and shoot!"', time: 10, method: 'Individual' },
-                                { name: 'Offensive Concept: Reading Screens & Slip/Pop', skills: 'Reading defense off screens, quick decision-making', setup: 'Review off-ball screens. Now, emphasize "slipping" the screen if defender goes under, or "popping" out if defender goes over.', keyPoints: '"React to the defense!" "Be decisive!"', time: 8, method: 'Sequential/Small Groups' },
-                                { name: 'Defensive Concept: Defensive Adjustments', skills: 'Defensive adaptability, communication', setup: 'Adjust defense based on offensive actions (e.g., if offense screens, practice going over/under; if they cut, deny).', keyPoints: '"Recognize and and adjust, communicate!"', time: 7, method: 'Groups of 4' },
-                                { name: 'Small-Sided Games: 3v3 Motion Mastery', skills: 'Applying all offensive concepts, fluid play', setup: 'Groups of 6. Free-flowing motion offense. Coach encourages using everything learned.', keyPoints: '"Use everything, play smart!" "Combine all concepts naturally!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 Advanced Play', skills: 'Full game application, strategic thinking, teamwork', setup: 'High-level scrimmage with all offensive and defensive concepts. Coach encourages players to think and react under pressure.', keyPoints: '"Play your best basketball!" "Communicate constantly!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review season progress, advanced concepts.', keyPoints: 'Focus on team unity and effort. "How have we improved?"', time: 5, method: 'Sequential' }
+                                { name: 'Competition Warm-up', skills: 'Competitive spirit', setup: 'Relay races with basketball skills.', keyPoints: 'Compete while maintaining skills', time: 10, method: 'Teams' },
+                                { name: 'Advanced Zoom Combinations', skills: 'Complex offensive sets', setup: 'Combine zoom with other actions.', keyPoints: 'Flow from one action to another', time: 12, method: 'Groups of 5' },
+                                { name: 'Motion Mastery', skills: 'All offensive concepts', setup: 'Free flowing offensive movement.', keyPoints: 'Read and react as a team', time: 12, method: 'Groups of 5' },
+                                { name: 'Defensive Adjustments', skills: 'Adaptive defense', setup: 'Adjust to different offensive actions.', keyPoints: 'Recognize and adjust quickly', time: 10, method: 'Groups of 8' },
+                                { name: 'Championship Rebounding', skills: 'Elite rebounding', setup: 'High intensity rebounding drills.', keyPoints: 'Championship teams rebound', time: 10, method: 'Full team' },
+                                { name: 'Pressure Situations', skills: 'Mental toughness', setup: 'Practice under game pressure.', keyPoints: 'Stay composed under pressure', time: 10, method: 'Full team' },
+                                { name: '3v3 Motion Mastery', skills: 'Applied concepts', setup: 'Use all offensive concepts.', keyPoints: 'Use everything learned', time: 16, method: 'Groups of 6' },
+                                { name: '5v5 Advanced Play', skills: 'High level execution', setup: 'High intensity scrimmage.', keyPoints: 'Play your best basketball', time: 10, method: 'Full team' }
                             ]
                         },
                         {
                             name: 'Practice 2',
                             drills: [
-                                { name: 'Dynamic Warm-up: Favorite Drills', skills: 'Engagement, skill demonstration, fun', setup: 'Let players choose their favorite warm-up activities or drills from previous practices. Focus on fun and demonstrating learned skills.', keyPoints: '"Have fun, show what you\'ve learned!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Signature Moves', skills: 'Individual skill refinement, confidence', setup: 'Players practice their best/favorite moves (dribbling, shooting, finishing). Focus on perfecting one move.', keyPoints: '"Perfect your best move!" "Be confident!"', time: 10, method: 'Individual' },
-                                { name: 'Station B: Playmaking (Passing)', skills: 'Passing vision, creating assists, teamwork', setup: 'Drills focused on creating plays for teammates and making assists (e.g., 2-on-1, 3-on-2 with emphasis on the assist).', keyPoints: '"Make your teammates better!" "Look for the open pass!"', time: 10, method: 'Groups of 3' },
-                                { name: 'Station C: Clutch Shooting', skills: 'Shooting under pressure, mental toughness', setup: 'Shooting under pressure situations (e.g., last shot, game-winning shot scenarios).', keyPoints: '"Make big shots, stay confident!" "Focus under pressure!"', time: 10, method: 'Individual' },
-                                { name: 'Offensive Concept: Game Situations (End of Game)', skills: 'Execution under pressure, decision-making', setup: 'Practice end-of-game situations (e.g., down by 2 with 30 seconds left, needing a score).', keyPoints: '"Stay calm, execute under pressure!"', time: 8, method: 'Sequential/Full team' },
-                                { name: 'Defensive Concept: Leadership & Communication', skills: 'Leadership, defensive communication, teamwork', setup: 'Players take turns leading defensive communication in small groups or during drills. Coach provides feedback on clarity and volume.', keyPoints: '"Be leaders, help teammates!" "Talk loud and clear!"', time: 7, method: 'Groups of 4' },
-                                { name: 'Small-Sided Games: 3v3 Competition', skills: 'Competitive spirit, applying skills under pressure', setup: 'Groups of 6. Competitive games with standings. Coach emphasizes playing hard and competing fairly.', keyPoints: '"Play hard, compete, have fun!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 Game Simulation', skills: 'Full game application, pressure situations', setup: 'Full game simulation with officials (if possible). Practice managing timeouts, substitutions, and late-game scenarios.', keyPoints: '"Play like a game!" "Handle game-like situations!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Celebrate progress, build confidence.', keyPoints: 'Acknowledge individual improvement and team growth. "You\'ve all improved so much!"', time: 5, method: 'Sequential' }
+                                { name: 'Player Choice Warm-up', skills: 'Engagement and fun', setup: 'Players choose favorite warm-up drills.', keyPoints: 'Show what you have learned', time: 10, method: 'Group' },
+                                { name: 'Signature Moves', skills: 'Individual skills', setup: 'Perfect your best offensive move.', keyPoints: 'Master your go-to move', time: 10, method: 'Individual' },
+                                { name: 'Playmaking Drill', skills: 'Creating for others', setup: 'Focus on assists and creating shots.', keyPoints: 'Make teammates better', time: 10, method: 'Groups of 3' },
+                                { name: 'Defensive Leadership', skills: 'Communication and leadership', setup: 'Players lead defensive drills.', keyPoints: 'Be a defensive leader', time: 10, method: 'Groups of 4' },
+                                { name: 'Clutch Rebounding', skills: 'Game-winning rebounds', setup: 'Rebounding in pressure situations.', keyPoints: 'Get the big rebound', time: 10, method: 'Groups of 6' },
+                                { name: 'End Game Situations', skills: 'Closing games', setup: 'Practice end of game scenarios.', keyPoints: 'Execute in clutch moments', time: 10, method: 'Full team' },
+                                { name: '3v3 Competition', skills: 'Competitive application', setup: 'Tournament style competition.', keyPoints: 'Compete at highest level', time: 20, method: 'Groups of 6' },
+                                { name: '5v5 Game Simulation', skills: 'Full game prep', setup: 'Simulate game conditions.', keyPoints: 'Play like its a real game', time: 10, method: 'Full team' }
                             ]
                         }
                     ]
@@ -508,29 +463,27 @@
                         {
                             name: 'Practice 1',
                             drills: [
-                                { name: 'Dynamic Warm-up: Team Building', skills: 'Agility, quickness, team chemistry, trust', setup: 'Partner and team exercises (e.g., holding hands while dribbling, passing relays). Focus on building chemistry.', keyPoints: '"Work together, trust each other!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Pressure Drills (All Skills)', skills: 'Skill execution under pressure, mental toughness', setup: 'All skills (dribbling, passing, shooting) under time and light defensive pressure. Focus on performance under duress.', keyPoints: '"Perform under pressure!" "Stay calm!"', time: 10, method: 'Individual' },
-                                { name: 'Station B: Team Execution (Concepts)', skills: 'Perfect execution of team concepts', setup: 'Perfect execution of all team concepts: 5-out flow, Pack Line defense, ATO plays. Focus on precision.', keyPoints: '"Execute perfectly, help each other!"', time: 10, method: 'Groups of 5' },
-                                { name: 'Station C: Mental Toughness (Challenging Shots)', skills: 'Resilience, confidence, perseverance', setup: 'Practice difficult shots or challenging game situations. Emphasize staying tough and never giving up.', keyPoints: '"Stay tough, never give up!" "Believe in yourselves!"', time: 10, method: 'Individual' },
-                                { name: 'Offensive Concept: Championship Execution', skills: 'High-level execution, strategic thinking', setup: 'Run all plays and concepts perfectly. Focus on strategic decision-making in game-like scenarios.', keyPoints: '"Championship execution!" "Play smart!"', time: 8, method: 'Sequential/Full team' },
-                                { name: 'Defensive Concept: Championship Defense', skills: 'Intensity, communication, collective effort', setup: 'Focus on defensive intensity and communication. Practice defending with high energy and collective effort.', keyPoints: '"Championship defense, talk loud!" "Play with intensity!"', time: 7, method: 'Groups of 4' },
-                                { name: 'Small-Sided Games: 3v3 Championship Games', skills: 'High-intensity competition, applying all skills', setup: 'Groups of 6. High-intensity competitive games. Coach emphasizes playing like champions.', keyPoints: '"Play like champions!" "Compete at the highest level!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 Championship Intensity', skills: 'Game application, peak performance, mental readiness', setup: 'Highest intensity scrimmage. Simulate playoff conditions. Focus on mental preparation and peak performance.', keyPoints: '"Championship heart!" "Leave it all on the court!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Mental preparation, team bonding.', keyPoints: 'Focus on confidence and unity. "We are ready to compete!"', time: 5, method: 'Sequential' }
+                                { name: 'Team Building Warm-up', skills: 'Chemistry and trust', setup: 'Partner and team exercises.', keyPoints: 'Build trust with teammates', time: 10, method: 'Group' },
+                                { name: 'Pressure Execution', skills: 'Performance under pressure', setup: 'All skills under defensive pressure.', keyPoints: 'Perform when it matters', time: 12, method: 'Individual' },
+                                { name: 'Perfect Offense', skills: 'Flawless execution', setup: 'Run offense with perfect execution.', keyPoints: 'Execute at championship level', time: 12, method: 'Groups of 5' },
+                                { name: 'Championship Defense', skills: 'Elite defensive intensity', setup: 'Maximum defensive effort and communication.', keyPoints: 'Championship defense wins games', time: 10, method: 'Groups of 5' },
+                                { name: 'Championship Rebounding', skills: 'Dominate the boards', setup: 'High intensity team rebounding.', keyPoints: 'Win the rebounding battle', time: 10, method: 'Full team' },
+                                { name: 'Mental Toughness', skills: 'Resilience and focus', setup: 'Practice through adversity.', keyPoints: 'Stay tough mentally', time: 10, method: 'Individual' },
+                                { name: '3v3 Championship', skills: 'Elite competition', setup: 'Championship intensity games.', keyPoints: 'Play like champions', time: 16, method: 'Groups of 6' },
+                                { name: '5v5 Championship', skills: 'Peak performance', setup: 'Highest intensity scrimmage.', keyPoints: 'Leave everything on the court', time: 10, method: 'Full team' }
                             ]
                         },
                         {
                             name: 'Practice 2',
                             drills: [
-                                { name: 'Dynamic Warm-up: Fun Games', skills: 'Engagement, fun, skill application', setup: 'Basketball-themed games and activities chosen by players or coach. Focus on fun and celebrating the season.', keyPoints: '"Have fun, celebrate the season!"', time: 10, method: 'Group' },
-                                { name: 'Station A: Skills Competition', skills: 'Skill demonstration, competition, fun', setup: 'Dribbling, shooting, passing competitions (e.g., hot shot, dribble obstacle course).', keyPoints: '"Show off your skills!" "Compete and have fun!"', time: 10, method: 'Individual' },
-                                { name: 'Station B: Trick Shots & Creativity', skills: 'Creativity, fun, confidence', setup: 'Creative shots, fun challenges (e.g., half-court shots, trick layups).', keyPoints: '"Be creative, have fun!" "Show your personality!"', time: 10, method: 'Individual' },
-                                { name: 'Station C: Team Challenges', skills: 'Teamwork, cooperation, fun', setup: 'Team-based skill challenges (e.g., relay races, passing accuracy challenges).', keyPoints: '"Work together, have fun!"', time: 10, method: 'Groups' },
-                                { name: 'Offensive Concept: Perfect Practice', skills: 'Execution, confidence, review', setup: 'Run everything perfectly one more time. Focus on smooth execution of all offensive concepts and plays.', keyPoints: '"Show how much you\'ve learned!"', time: 8, method: 'Sequential/Full team' },
-                                { name: 'Defensive Concept: Scrimmage Coaching', skills: 'Leadership, understanding, teaching', setup: 'Players take turns coaching each other during defensive drills or small scrimmages. Encourage them to share knowledge.', keyPoints: '"Coach each other, share knowledge!" "Help your teammates!"', time: 7, method: 'Groups of 4' },
-                                { name: 'Small-Sided Games: 3v3 All-Star Games', skills: 'Fun, competitive play, skill application', setup: 'Fun, competitive games (e.g., 3v3 All-Star games). Focus on combining skills with enjoyment.', keyPoints: '"Play your best, have fun!"', time: 20, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 Season Celebration', skills: 'Game application, celebration, reflection', setup: 'Celebration scrimmage. Focus on enjoying the game and showing pride in improvement over the season.', keyPoints: '"Celebrate your growth!" "Enjoy the game!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk (Season Review)', skills: 'Flexibility, sportsmanship, reflection, recognition', setup: 'Team stretches. Season review, individual recognition, positive reinforcement.', keyPoints: 'Focus on overall development, fun, and sportsmanship. "You are all basketball players now!"', time: 5, method: 'Sequential' }
+                                { name: 'Fun Games Warm-up', skills: 'Enjoyment and celebration', setup: 'Basketball games chosen by players.', keyPoints: 'Celebrate the season', time: 10, method: 'Group' },
+                                { name: 'Skills Competition', skills: 'Showcase abilities', setup: 'Dribbling, shooting, passing contests.', keyPoints: 'Show your skills', time: 12, method: 'Individual' },
+                                { name: 'Trick Shots', skills: 'Creativity and fun', setup: 'Creative shots and challenges.', keyPoints: 'Be creative and have fun', time: 10, method: 'Individual' },
+                                { name: 'Team Challenges', skills: 'Teamwork and cooperation', setup: 'Team-based skill challenges.', keyPoints: 'Work together as a team', time: 10, method: 'Groups' },
+                                { name: 'Perfect Practice Review', skills: 'Season review', setup: 'Run through all concepts learned.', keyPoints: 'Show how much you have learned', time: 10, method: 'Sequential' },
+                                { name: 'Player Coaching', skills: 'Understanding and teaching', setup: 'Players coach each other.', keyPoints: 'Share your knowledge', time: 8, method: 'Groups of 4' },
+                                { name: '3v3 All-Star', skills: 'Fun competition', setup: 'Fun competitive games.', keyPoints: 'Play your best and have fun', time: 20, method: 'Groups of 6' },
+                                { name: '5v5 Celebration', skills: 'Season culmination', setup: 'Celebration scrimmage.', keyPoints: 'Celebrate your growth', time: 10, method: 'Full team' }
                             ]
                         }
                     ]
@@ -539,45 +492,40 @@
                     week: 'Flexible',
                     practices: [
                         {
-                            name: 'Fill-in Practice 1 (Core Skills Review)',
+                            name: 'Fill-in Practice 1',
                             drills: [
-                                { name: 'Dynamic Warm-up: Dribble Weave', skills: 'Agility, coordination, ball control', setup: 'Players dribble in a weave pattern, passing to teammates as they cross paths. Focus on continuous movement and communication.', keyPoints: 'Keep your head up! Pass ahead! Stay in control!', time: 10, method: 'Group' },
-                                { name: 'Station A: Dribbling (Advanced Moves & Two-Ball)', skills: 'Ball control, creativity, ambidexterity', setup: 'Players practice crossovers, between-the-legs, behind-the-back. Advanced players can try two-ball dribbling (alternating or simultaneous).', keyPoints: 'Low and quick moves! Control both balls!', time: 15, method: 'Individual' },
-                                { name: 'Station B: Passing (On the Move & Quick Decisions)', skills: 'Passing accuracy, court vision, decision-making', setup: 'Players pass while moving around cones or defenders. Focus on quick decisions: pass, drive, or shoot.', keyPoints: 'Look before you pass! Make quick reads!', time: 15, method: 'Small Groups' },
-                                { name: 'Station C: Shooting (Layups & Form Shooting)', skills: 'Layup mechanics, shooting form, consistency', setup: 'Practice layups with both hands. Follow with form shooting from various close-range spots, emphasizing BEEF.', keyPoints: 'Soft touch on layups! Consistent form!', time: 15, method: 'Individual' },
-                                { name: 'Offensive Concept: Spacing & Movement Flow', skills: 'Offensive spacing, movement without ball', setup: 'Walk-through 5-out flow with light defensive pressure. Emphasize constant movement, cutting, and filling open spots.', keyPoints: '"Spread out!" "Pass and cut!" "Fill the space!"', time: 10, method: 'Sequential' },
-                                { name: 'Defensive Concept: Stance & Communication', skills: 'Defensive stance, verbal communication', setup: 'Mirror drill with emphasis on loud communication ("Ball!", "Deny!", "Help!"). Practice closing out on shooters.', keyPoints: 'Stay low! Talk loud! Hands up on close-outs!', time: 10, method: 'Small Groups' },
-                                { name: 'Small-Sided Games: 3v3 "First to 5" (Spacing/Defense)', skills: 'Game application, teamwork, competitive play', setup: 'Groups of 6. Play 3v3 half-court games to 5 points. Emphasize applying 5-out spacing on offense and Pack Line principles on defense.', keyPoints: '"Spread out on offense!" "Pack the paint on defense!"', time: 15, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 Full Court (Flow & Communication)', skills: 'Game application, offensive flow, defensive communication', setup: 'Full team scrimmage. Focus on fluid offensive movement and constant defensive communication. Coach stops play for corrections.', keyPoints: '"Keep the ball moving!" "Talk on defense!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Review key takeaways and highlight team effort.', keyPoints: 'Positive attitude! Great effort!', time: 5, method: 'Sequential' }
+                                { name: 'Dynamic Warm-up', skills: 'General preparation', setup: 'Mix of dribbling, defensive slides, and shooting motion.', keyPoints: 'Prepare body for practice', time: 10, method: 'Group' },
+                                { name: 'Fundamental Stations', skills: 'Basic skills review', setup: '4 stations: dribbling, passing, shooting, defense. Rotate every 5 minutes.', keyPoints: 'Focus on proper technique', time: 20, method: 'Small Groups' },
+                                { name: 'Zoom/Drive Review', skills: 'Offensive reinforcement', setup: 'Review whichever offensive concept needs work.', keyPoints: 'Polish what needs improvement', time: 15, method: 'Groups of 5' },
+                                { name: 'Pack Line Review', skills: 'Defensive reinforcement', setup: 'Review pack line positioning and help.', keyPoints: 'Maintain defensive discipline', time: 10, method: 'Groups of 4' },
+                                { name: 'Rebounding Emphasis', skills: 'Boxing out and pursuing', setup: 'Extra work on rebounding fundamentals.', keyPoints: 'Rebounding wins games', time: 10, method: 'Groups of 4' },
+                                { name: 'Team Choice Activity', skills: 'Player engagement', setup: 'Team picks favorite competitive drill.', keyPoints: 'Player ownership of practice', time: 10, method: 'Variable' },
+                                { name: 'Scrimmage Variations', skills: 'Game application', setup: 'Try different rules to emphasize concepts.', keyPoints: 'Apply concepts in game setting', time: 15, method: 'Full team' }
                             ]
                         },
                         {
-                            name: 'Fill-in Practice 2 (Game Concepts Review)',
+                            name: 'Fill-in Practice 2',
                             drills: [
-                                { name: 'Dynamic Warm-up: Defensive Slides & Close-outs', skills: 'Agility, lateral movement, defensive readiness', setup: 'Players perform defensive slides across the court, then practice closing out on a coach or cone. Emphasize chopping feet at the end.', keyPoints: 'Stay low! Chop your feet! Hands up!', time: 10, method: 'Group' },
-                                { name: 'Station A: Finishing (Layups vs Light D)', skills: 'Finishing at rim, confidence, decision-making', setup: 'Players drive for layups against a light defender (coach or teammate). Focus on strong finishes and using the body.', keyPoints: 'Strong finish! Use the backboard!', time: 15, method: 'Individual' },
-                                { name: 'Station B: Rebounding (Box Out & Tips)', skills: 'Rebounding, positioning, second-chance points', setup: 'Coach shoots. Players practice boxing out a partner, then going for the rebound. Also practice offensive tip-ins/put-backs.', keyPoints: 'Find a body! Go get the ball! Quick tips!', time: 15, method: 'Small Groups' },
-                                { name: 'Station C: Transition Drills (2-on-1, 3-on-2)', skills: 'Fast break offense, transition defense, decision-making', setup: 'Run continuous 2-on-1 and 3-on-2 fast break drills. Emphasize quick decisions on offense and sprinting back on defense.', keyPoints: 'Run the floor! Sprint back! Communicate!', time: 15, method: 'Groups of 3-4' },
-                                { name: 'Offensive Concept: ATO Play Review (BLOB/SLOB)', skills: 'Play execution, quick starts', setup: 'Walk-through and light execution of BLOB and SLOB plays. Focus on quick inbound and immediate attack.', keyPoints: '"Execute crisply!" "Be ready to score!"', time: 10, method: 'Sequential/Small Groups' },
-                                { name: 'Defensive Concept: Pack Line Help & Recovery', skills: 'Help defense, recovery, paint protection', setup: 'Run 3-on-3 with emphasis on off-ball defenders staying in the pack line, helping on drives, and recovering to their man.', keyPoints: '"Pack the paint!" "Help and recover!"', time: 10, method: 'Small Groups' },
-                                { name: 'Small-Sided Games: 3v3 "Transition Focus"', skills: 'Game application, fast break play', setup: 'Groups of 6. Play 3v3 half-court. Award bonus points for fast break scores or for defensive stops on fast breaks.', keyPoints: '"Run hard on offense, sprint back on defense!"', time: 15, method: 'Groups of 6' },
-                                { name: 'Scrimmage: 5v5 with Specific Rules', skills: 'Game application, strategic execution', setup: 'Full team scrimmage. Introduce specific rules (e.g., "must make 2 passes before shooting," "must get a paint touch"). Coach enforces rules.', keyPoints: '"Follow the rules!" "Play smart!"', time: 10, method: 'Full team' },
-                                { name: 'Cool-down & Team Talk', skills: 'Flexibility, sportsmanship, reinforcement', setup: 'Light stretching. Discuss game situations and decision-making.', keyPoints: 'Think on your feet! Great teamwork!', time: 5, method: 'Sequential' }
+                                { name: 'Ball Handling Warm-up', skills: 'Dribbling focus', setup: 'Stationary and moving dribble series.', keyPoints: 'Improve ball control', time: 10, method: 'Individual' },
+                                { name: 'Shooting Circuit', skills: 'Shooting development', setup: 'Multiple shooting stations around court.', keyPoints: 'Focus on form and consistency', time: 15, method: 'Individual' },
+                                { name: 'Defensive Slides Circuit', skills: 'Defensive conditioning', setup: 'Various defensive movement patterns.', keyPoints: 'Build defensive endurance', time: 10, method: 'Individual' },
+                                { name: 'Transition Drills', skills: 'Fast break offense and defense', setup: 'Continuous 2v1, 3v2 transitions.', keyPoints: 'Quick decisions in transition', time: 15, method: 'Groups of 5' },
+                                { name: 'Situational Practice', skills: 'Game situations', setup: 'Practice specific game scenarios.', keyPoints: 'Be ready for any situation', time: 15, method: 'Full team' },
+                                { name: 'Competitive Games', skills: 'Competition and fun', setup: 'Various competitive basketball games.', keyPoints: 'Compete while having fun', time: 15, method: 'Variable' },
+                                { name: '5v5 Scrimmage', skills: 'Full application', setup: 'Standard scrimmage with emphasis on execution.', keyPoints: 'Apply all concepts', time: 10, method: 'Full team' }
                             ]
                         },
                         {
-                            name: 'Low Intensity Practice (IQ & Teamwork)',
+                            name: 'Low Intensity Practice',
                             drills: [
-                                { name: 'Warm-up: Light Dribbling & Stretching', skills: 'Ball control, flexibility, light cardio', setup: 'Light jogging with dribbling (both hands), followed by static and dynamic stretches. Focus on relaxation.', keyPoints: 'Relaxed dribbling! Gentle stretches!', time: 10, method: 'Group' },
-                                { name: 'Activity: Chalk Talk / Whiteboard Session', skills: 'Basketball IQ, understanding schemes, communication', setup: 'Gather players around a whiteboard or use cones on the court. Review offensive and defensive positions, rules, and basic plays. Encourage questions.', keyPoints: 'Ask questions! Understand your role!', time: 15, method: 'Sequential' },
-                                { name: 'Walkthrough: 5-Out Offense (No Defense)', skills: 'Offensive spacing, movement patterns, timing', setup: 'Slow, no-defense walkthrough of 5-out motion. Focus on proper spacing, cutting paths, and filling spots. Emphasize timing.', keyPoints: 'Walk through it perfectly! See the open space!', time: 15, method: 'Sequential' },
-                                { name: 'Walkthrough: Pack Line Defense (No Offense)', skills: 'Defensive positioning, help-side, communication', setup: 'Slow, no-offense walkthrough of Pack Line defense. Focus on on-ball pressure, denying, help-side positioning, and communication ("Ball!").', keyPoints: 'Stay low! See man and ball! Talk to your teammates!', time: 15, method: 'Sequential' },
-                                { name: 'Drill: Passing & Receiving (Accuracy Focus)', skills: 'Passing accuracy, soft hands, communication', setup: 'Stationary partner passing, focusing purely on chest and bounce pass accuracy. Emphasize catching with soft hands and verbal cues.', keyPoints: 'Perfect passes! Soft hands! Call for the ball!', time: 10, method: 'Pairs' },
-                                { name: 'Drill: Form Shooting (Close Range, No Jump)', skills: 'Shooting form, touch, consistency', setup: 'Close-range form shooting (3-5 feet) without jumping. Focus on BEEF and consistent follow-through. Low energy.', keyPoints: 'Perfect form! Soft touch!', time: 10, method: 'Individual' },
-                                { name: 'Activity: Team Communication Drill', skills: 'Communication, court awareness, teamwork', setup: 'Players pass the ball around, calling out player numbers or directions. Focus on loud, clear communication.', keyPoints: 'Be loud! Be clear! Help each other!', time: 5, method: 'Group' },
-                                { name: 'Small-Sided Game: 3v3 "No Dribble"', skills: 'Passing, cutting, spacing, teamwork', setup: 'Groups of 6. Play 3v3 half-court, but no dribbling allowed. Forces players to pass, cut, and move without the ball to score. Low energy but high IQ.', keyPoints: '"Pass, cut, move!" "No dribbling!"', time: 5, method: 'Groups of 6' },
-                                { name: 'Cool-down / Team Bonding', skills: 'Flexibility, sportsmanship, camaraderie', setup: 'Light stretching. Positive team talk, reinforce key concepts, build camaraderie. Avoid intense physical activity.', keyPoints: 'Great teamwork! We are ready!', time: 5, method: 'Sequential' }
+                                { name: 'Light Warm-up', skills: 'Easy preparation', setup: 'Light jogging with ball, static stretching.', keyPoints: 'Gentle preparation', time: 10, method: 'Group' },
+                                { name: 'Form Shooting', skills: 'Shooting mechanics', setup: 'Close range shooting focusing on form.', keyPoints: 'Perfect shooting form', time: 15, method: 'Individual' },
+                                { name: 'Passing Accuracy', skills: 'Precise passing', setup: 'Stationary passing focusing on accuracy.', keyPoints: 'Hit your target every time', time: 10, method: 'Pairs' },
+                                { name: 'Walk-through Offense', skills: 'Mental reps', setup: 'Walk through all offensive actions.', keyPoints: 'Understand positioning and timing', time: 15, method: 'Sequential' },
+                                { name: 'Walk-through Defense', skills: 'Defensive understanding', setup: 'Walk through defensive rotations.', keyPoints: 'Know where to be on defense', time: 15, method: 'Sequential' },
+                                { name: 'Free Throw Practice', skills: 'Routine development', setup: 'Everyone shoots free throws.', keyPoints: 'Develop consistent routine', time: 10, method: 'Individual' },
+                                { name: 'Basketball IQ Discussion', skills: 'Mental game', setup: 'Discuss game situations and decisions.', keyPoints: 'Think the game', time: 10, method: 'Group' },
+                                { name: 'Light Stretching', skills: 'Recovery', setup: 'Full body stretching routine.', keyPoints: 'Take care of your body', time: 5, method: 'Group' }
                             ]
                         }
                     ]
@@ -585,72 +533,69 @@
             ];
             
             const drillLibrary = [
-                { title: 'Dribble Tag', category: 'Warm-up & Agility', skills: 'Ball Control, Head Up, Agility', desc: 'Players dribble in a defined space. "It" players try to knock away others\' basketballs. Teaches protecting the ball while looking up and moving.' },
-                { title: 'Mikan Drill', category: 'Shooting & Finishing', skills: 'Layups, Touch, Coordination', desc: 'Player stands under the hoop, making alternating right-hand and left-hand layups without letting the ball hit the floor. Builds touch and coordination around the rim.' },
-                { title: 'Mirror Drill', category: 'Defensive Concepts', skills: 'Stance, Footwork, Lateral Movement', desc: 'In pairs, one player (offense) slides side to side while the defender mirrors their movement, maintaining a low defensive stance and not crossing feet.' },
-                { title: 'Weave Passing', category: 'Passing', skills: 'Passing on Move, Timing, Communication', desc: 'Three players move down the court, passing and cutting behind the receiver to form a weave pattern. Builds timing and communication for fast breaks.' },
-                { title: 'Box Out Drill', category: 'Rebounding', skills: 'Rebounding, Strength, Positioning', desc: 'Coach shoots. Players find a partner, make contact, and pivot to "box them out" from getting the rebound. Emphasizes getting between opponent and basket.' },
-                { title: 'Knockout', category: 'Fun & Competition', skills: 'Shooting Under Pressure, Competition', desc: 'A fun game where players line up to shoot. If the player behind you makes a shot before you do, you are knocked out. Reinforces shooting form under light pressure.' },
-                { title: 'Zig-Zag Dribbling', category: 'Dribbling', skills: 'Ball Control, Change of Direction, Both Hands', desc: 'Dribble through cones in a zig-zag pattern, changing hands at each cone. Focuses on control and quick changes of direction with both hands.' },
-                { title: 'Pound Dribble', category: 'Dribbling', skills: 'Ball Control, Strength, Protection', desc: 'Players dribble the ball forcefully into the ground with one hand, then switch. Builds dribbling strength and control, and helps protect the ball.' },
-                { title: 'Triple Threat & Shot Fake', category: 'Offensive Concepts', skills: 'Footwork, Fakes, Decision-making', desc: 'Players practice catching the ball in triple threat, using jab steps and shot fakes before driving or passing. Teaches offensive reads.' },
-                { title: 'Backdoor Cut Drill', category: 'Offensive Concepts', skills: 'Cutting, Reading Defense, Off-ball Movement', desc: 'Players practice cutting sharply to the basket when a defender overplays them on the perimeter. Teaches exploiting overaggressive defense.' },
-                { title: 'Circle Passing (Rapid Fire)', category: 'Passing', skills: 'Passing Accuracy, Quickness, Communication', desc: 'Players form a circle with one player in the middle. The middle player quickly passes to each outside player and gets the ball back. Improves quick passing and receiving.' },
-                { title: 'Two-Ball Dribbling', category: 'Dribbling', skills: 'Ball Control, Coordination, Ambidexterity', desc: 'Players dribble two basketballs simultaneously, either alternating or in unison. Improves hand-eye coordination and develops both hands.' },
-                { title: 'Jump Stops & Pivots', category: 'Footwork', skills: 'Balance, Footwork, Pivoting, Control', desc: 'Players dribble, execute a jump stop (two feet or one foot), then pivot to face the basket or pass. Essential for balance and avoiding travels.' },
-                { title: 'Off-Ball Screens (Down Screen)', category: 'Offensive Concepts', skills: 'Screening, Movement, Creating Space', desc: 'Players practice setting a stationary screen for a teammate cutting towards the ball (down screen). Teaches how to create openings for others.' },
-                { title: 'Transition Defense Drill', category: 'Transition', skills: 'Effort, Communication, Sprinting, Fast Break Prevention', desc: 'After an offensive possession, players immediately sprint back to defend against an opponent\'s fast break. Emphasizes hustle and communication.' },
-                { title: 'Game-Speed Dribbling & Finishing', category: 'Dribbling', skills: 'Dribbling under Pressure, Finishing, Decision-making', desc: 'Players dribble full-court at game speed, make a move, and finish with a layup or short jumper. Simulates game situations.' },
-                { title: 'Fast Break Passing', category: 'Transition', skills: 'Court Vision, Lead Passes, Transition Offense', desc: 'Players practice 2-on-1 or 3-on-2 fast break situations, focusing on crisp, leading passes to open teammates. Improves offensive transition.' },
-                { title: 'Offensive Rebounding (Tip-Ins)', category: 'Rebounding', skills: 'Rebounding, Second Chance Points, Quick Jumps', desc: 'Players practice tipping the ball in after a miss or securing an offensive rebound for a put-back. Teaches aggressive pursuit of the ball.' },
-                { title: 'ATO/SLOB Execution', category: 'Plays', skills: 'Inbounding, Play Execution, Pressure', desc: 'Practice specific Baseline Out-of-Bounds (BLOB) and Sideline Out-of-Bounds (SLOB) plays for quick scoring opportunities. Builds confidence in set plays.' },
-                { title: 'Full-Court Press Fundamentals', category: 'Defensive Concepts', skills: 'Pressure, Communication, Trapping (basic)', desc: 'Basic drills for full-court press, focusing on denying the inbound pass and containing the dribbler (for late-game situations only).' },
-                { title: 'Basic On-Ball Screen Defense', category: 'Defensive Concepts', skills: 'Defending Screens, Communication, Recovery', desc: 'Practice basic techniques like "going under" or "hedging" on an on-ball screen, emphasizing communication between defenders to stay with their man.'},
-                { title: 'Red Light/Green Light', category: 'Warm-up & Agility', skills: 'Ball Control, Reactions, Defensive Stance', desc: 'Players dribble on "green light", freeze in defensive stance on "red light". Improves quick reactions and proper defensive stance.'},
-                { title: 'Sharks and Minnows', category: 'Warm-up & Agility', skills: 'Ball Protection, Head Up, Agility', desc: 'Players dribble across court while "sharks" try to steal balls. Teaches protecting the ball and dribbling with head up in traffic.'},
-                { title: 'Contested Shots', category: 'Shooting & Finishing', skills: 'Shooting Under Pressure, Confidence', desc: 'Shooter attempts shots with a defender lightly contesting with a pad or hand. Builds confidence in shooting over defense.'},
-                { title: 'Defensive Communication', category: 'Defensive Concepts', skills: 'Verbal Communication, Court Awareness', desc: 'Defenders call out offensive players\' names and positions (e.g., "Ball!", "Deny!", "Help!"). Improves team communication on defense.'},
-                { title: 'Team Building Warm-up', category: 'Warm-up & Agility', skills: 'Team Chemistry, Trust, Cooperation', desc: 'Partner and team exercises (e.g., holding hands while dribbling, passing relays). Focus on building chemistry and cooperation.'},
-                { title: 'Skills Competition', category: 'Fun & Competition', skills: 'Skill Demonstration, Competition', desc: 'Dribbling, shooting, passing competitions (e.g., hot shot, dribble obstacle course). Allows players to showcase skills in a fun, competitive environment.'},
-                { title: 'Trick Shots & Creativity', category: 'Fun & Competition', skills: 'Creativity, Confidence', desc: 'Encourage players to attempt creative shots and fun challenges (e.g., half-court shots, trick layups). Fosters creativity and confidence.'},
-                { title: 'Team Challenges', category: 'Fun & Competition', skills: 'Teamwork, Cooperation, Problem Solving', desc: 'Team-based skill challenges (e.g., relay races, passing accuracy challenges). Promotes teamwork and problem-solving in a fun way.'},
-                { title: 'Scrimmage Coaching', category: 'Basketball IQ', skills: 'Leadership, Understanding, Teaching', desc: 'Players take turns coaching each other during defensive drills or small scrimmages. Encourages them to share knowledge and reinforces understanding.'},
-                { title: 'Dribble Weave', category: 'Warm-up & Agility', skills: 'Agility, Coordination, Ball Control', desc: 'Players dribble in a weave pattern, passing to teammates as they cross paths. Focus on continuous movement and communication.'},
-                { title: 'Finishing (Layups vs Light D)', category: 'Shooting & Finishing', skills: 'Finishing at Rim, Confidence, Decision-making', desc: 'Players drive for layups against a light defender (coach or teammate). Focus on strong finishes and using the body.'},
-                { title: 'Transition Drills (2-on-1, 3-on-2)', category: 'Transition', skills: 'Fast Break Offense, Transition Defense, Decision-making', desc: 'Run continuous 2-on-1 and 3-on-2 fast break drills. Emphasize quick decisions on offense and sprinting back on defense.'},
-                { title: 'Low Intensity Warm-up', category: 'Warm-up & Agility', skills: 'Ball Control, Flexibility, Light Cardio', desc: 'Light jogging with dribbling (both hands), followed by static and dynamic stretches. Focus on relaxation.'},
-                { title: 'Chalk Talk / Whiteboard Session', category: 'Basketball IQ', skills: 'Basketball IQ, Understanding Schemes, Communication', desc: 'Gather players around a whiteboard or use cones on the court. Review offensive and defensive positions, rules, and basic plays. Encourage questions.'},
-                { title: 'Walkthrough: 5-Out Offense', category: 'Offensive Concepts', skills: 'Offensive Spacing, Movement Patterns, Timing', desc: 'Slow, no-defense walkthrough of 5-out motion. Focus on proper spacing, cutting paths, and filling spots. Emphasize timing.'},
-                { title: 'Walkthrough: Pack Line Defense', category: 'Defensive Concepts', skills: 'Defensive Positioning, Help-Side, Communication', desc: 'Slow, no-offense walkthrough of Pack Line defense. Focus on on-ball pressure, denying, help-side positioning, and communication ("Ball!").'},
-                { title: 'Passing & Receiving (Accuracy Focus)', category: 'Passing', skills: 'Passing Accuracy, Soft Hands, Communication', desc: 'Stationary partner passing, focusing purely on chest and bounce pass accuracy. Emphasize catching with soft hands and verbal cues.'},
-                { title: 'Form Shooting (Close Range, No Jump)', category: 'Shooting & Finishing', skills: 'Shooting Form, Touch, Consistency', desc: 'Close-range form shooting (3-5 feet) without jumping. Focus on BEEF and consistent follow-through. Low energy.'},
-                { title: 'Team Communication Drill', category: 'Communication', skills: 'Communication, Court Awareness, Teamwork', desc: 'Players pass the ball around, calling out player numbers or directions. Focus on loud, clear communication.'},
-                { title: 'No Dribble 3v3', category: 'Fun & Competition', skills: 'Passing, Cutting, Spacing, Teamwork', desc: 'Play 3v3 half-court with no dribbling allowed. Forces players to pass, cut, and move without the ball to score. Low energy but high IQ.'}
+                { title: 'Dribble Tag', category: 'Warm-up & Agility', skills: 'Ball Control, Awareness', desc: 'Players dribble while trying to knock away others basketballs. Teaches ball protection and court awareness.' },
+                { title: 'Attack Drives', category: 'Offensive Concepts', skills: 'Aggressive Drives, Finishing', desc: 'Sprint dribble from half court to basket for layup. Builds attacking mentality and finishing skills.' },
+                { title: 'Drive & Fill', category: 'Offensive Concepts', skills: 'Spacing, Team Movement', desc: 'Primary zoom attack action. Ball handler drives, weak side cuts through, others fill to maintain spacing.' },
+                { title: 'Zoom Action', category: 'Offensive Concepts', skills: 'Screening, DHO, Scoring', desc: 'Pin-down screen followed by dribble handoff. Creates immediate scoring opportunities through structured action.' },
+                { title: 'Pack Line Shell', category: 'Defensive Concepts', skills: 'Team Defense, Positioning', desc: '4v4 drill teaching pack line principles. Emphasizes help positioning and ball pressure.' },
+                { title: 'Box Out Drill', category: 'Rebounding', skills: 'Rebounding, Positioning', desc: 'Find opponent, make contact, seal away from basket. Essential for securing rebounds.' },
+                { title: 'Closeout Drill', category: 'Defensive Concepts', skills: 'Contesting Shots', desc: 'Sprint to shooter, chop steps, contest with high hands. Prevents easy shots.' },
+                { title: 'Help & Recover', category: 'Defensive Concepts', skills: 'Help Defense, Recovery', desc: 'Help on drive, recover to shooter. Teaches team defense concepts.' },
+                { title: 'Mirror Drill', category: 'Defensive Concepts', skills: 'Defensive Stance, Footwork', desc: 'Defender mirrors offensive player movement. Builds lateral quickness and proper stance.' },
+                { title: 'DHO Practice', category: 'Offensive Concepts', skills: 'Handoff Technique', desc: 'Partners practice dribble handoffs. Essential for zoom action execution.' },
+                { title: 'Pin-down Screens', category: 'Offensive Concepts', skills: 'Screening Technique', desc: 'Practice setting down screens with proper angle and base. Core component of zoom action.' },
+                { title: 'Rebounding War', category: 'Rebounding', skills: 'Competitive Rebounding', desc: 'Two teams compete for rebounds. Winners stay on offense. Builds rebounding toughness.' },
+                { title: 'Transition Defense', category: 'Transition', skills: 'Getting Back, Stopping Ball', desc: 'Sprint back on defense, stop ball, match up. Prevents easy baskets.' },
+                { title: '2v1 Fast Break', category: 'Transition', skills: 'Advantage Situations', desc: 'Two offensive players attack one defender. Teaches quick decisions in transition.' },
+                { title: 'Zoom Reads', category: 'Offensive Concepts', skills: 'Decision Making', desc: 'Read defender on zoom action. Under equals shoot, over equals drive.' },
+                { title: 'Slip Screen', category: 'Offensive Concepts', skills: 'Counter Move', desc: 'Screener slips to basket when defense switches. Counter to aggressive defense.' },
+                { title: 'Backdoor Cut', category: 'Offensive Concepts', skills: 'Cutting, Timing', desc: 'Cut behind overplaying defender for easy basket. Punishes aggressive defense.' },
+                { title: 'Defensive Slides', category: 'Defensive Concepts', skills: 'Footwork, Conditioning', desc: 'Lateral slides in defensive stance. Builds defensive endurance and technique.' },
+                { title: 'Offensive Rebounding', category: 'Rebounding', skills: 'Second Chances', desc: 'Crash boards for putbacks and tips. Creates extra scoring opportunities.' },
+                { title: 'Team Box Out', category: 'Rebounding', skills: 'Team Rebounding', desc: 'All five players box out on shot. Team rebounding concept.' },
+                { title: 'BLOB Play', category: 'Plays', skills: 'Baseline Inbounds', desc: 'Baseline out of bounds play using zoom concepts. Quick scoring opportunity.' },
+                { title: 'SLOB Play', category: 'Plays', skills: 'Sideline Inbounds', desc: 'Sideline out of bounds play. Gets ball in play and creates immediate attack.' },
+                { title: 'Free Throw Routine', category: 'Shooting & Finishing', skills: 'Pressure Shooting', desc: 'Develop consistent free throw routine. Important for close games.' },
+                { title: 'Form Shooting', category: 'Shooting & Finishing', skills: 'Shooting Mechanics', desc: 'Close range shooting focusing on proper form. Builds shooting foundation.' },
+                { title: 'Layup Lines', category: 'Shooting & Finishing', skills: 'Finishing, Footwork', desc: 'Practice layups from both sides. Essential finishing skill.' },
+                { title: 'Mikan Drill', category: 'Shooting & Finishing', skills: 'Inside Finishing', desc: 'Continuous layups under basket alternating hands. Builds finishing touch.' },
+                { title: 'Defensive Communication', category: 'Communication', skills: 'Verbal Defense', desc: 'Call out screens, help, and assignments. Makes defense more effective.' },
+                { title: '3v3 Half Court', category: 'Competition', skills: 'Small-Sided Games', desc: 'Half court 3v3 games. Applies concepts in competitive setting.' },
+                { title: '5v5 Scrimmage', category: 'Competition', skills: 'Full Game Application', desc: 'Full team scrimmage. Puts everything together in game setting.' },
+                { title: 'Knockout', category: 'Fun & Competition', skills: 'Shooting Competition', desc: 'Elimination shooting game. Builds competitive spirit and shooting under pressure.' },
+                { title: 'Dribble Knockout', category: 'Warm-up & Agility', skills: 'Ball Protection', desc: 'Knock out others balls while protecting your own. Fun competitive dribbling.' },
+                { title: 'Red Light/Green Light', category: 'Warm-up & Agility', skills: 'Ball Control, Reactions', desc: 'Dribble on green, defensive stance on red. Improves reactions and control.' },
+                { title: 'Triple Threat', category: 'Offensive Concepts', skills: 'Offensive Stance', desc: 'Practice triple threat position and moves. Foundation for offensive decisions.' },
+                { title: 'Passing Lines', category: 'Passing', skills: 'Passing Accuracy', desc: 'Partner passing focusing on chest and bounce passes. Fundamental passing skills.' },
+                { title: 'Outlet Passes', category: 'Transition', skills: 'Starting Fast Break', desc: 'Rebound and outlet to start break. Initiates transition offense.' },
+                { title: 'Putback Drill', category: 'Rebounding', skills: 'Offensive Rebounds', desc: 'Practice quick putbacks after misses. Second chance scoring.' },
+                { title: 'End of Quarter', category: 'Special Situations', skills: 'Time Management', desc: 'Practice getting good shot with limited time. Game situation preparation.' },
+                { title: 'Continuous DHO', category: 'Offensive Concepts', skills: 'Flow Offense', desc: 'Continuous handoffs around perimeter. Keeps defense moving.' },
+                { title: 'Weak Side Movement', category: 'Offensive Concepts', skills: 'Off-Ball Movement', desc: 'Practice movement away from ball. Maintains spacing and creates opportunities.' },
+                { title: 'Contest & Box', category: 'Defense to Rebounding', skills: 'Shot Defense to Rebound', desc: 'Contest shot then immediately box out. Complete defensive possession.' },
+                { title: 'Team Challenges', category: 'Fun & Competition', skills: 'Teamwork', desc: 'Team-based competitions and challenges. Builds team chemistry.' },
+                { title: 'Skills Competition', category: 'Fun & Competition', skills: 'Individual Skills', desc: 'Dribbling, shooting, passing contests. Showcases individual improvement.' }
             ];
 
             const drillCategories = [
                 'All',
                 'Warm-up & Agility',
-                'Dribbling',
-                'Passing',
-                'Shooting & Finishing',
                 'Offensive Concepts',
                 'Defensive Concepts',
                 'Rebounding',
                 'Transition',
-                'Plays',
-                'Footwork',
-                'Basketball IQ',
-                'Fun & Competition',
+                'Shooting & Finishing',
+                'Passing',
                 'Communication',
-                'General' // For drills that are broadly applicable
+                'Competition',
+                'Fun & Competition',
+                'Plays',
+                'Special Situations'
             ];
-
 
             // --- INITIALIZATION ---
             function init() {
-                setupLogin(); // Call login setup first
-                // All other setups will be called after successful login
+                setupLogin();
             }
 
             // --- LOGIN FUNCTIONALITY ---
@@ -662,7 +607,7 @@
             const rememberMeCheckbox = document.getElementById('remember-me-checkbox');
             const loginButton = document.getElementById('login-button');
             const loginErrorMessage = document.getElementById('login-error-message');
-            const logoutButton = document.getElementById('logout-button'); // This button is now part of the main content
+            const logoutButton = document.getElementById('logout-button');
 
             function setupLogin() {
                 if (localStorage.getItem(REMEMBER_KEY) === 'true') {
@@ -677,7 +622,7 @@
                         handleLogin();
                     }
                 });
-                logoutButton.addEventListener('click', handleLogout); // Attach listener to logout button
+                logoutButton.addEventListener('click', handleLogout);
             }
 
             function handleLogin() {
@@ -689,7 +634,7 @@
                     showPlaybook();
                 } else {
                     loginErrorMessage.classList.remove('hidden');
-                    passwordInput.value = ''; // Clear password field
+                    passwordInput.value = '';
                 }
             }
 
@@ -701,31 +646,28 @@
             function showLogin() {
                 loginScreen.classList.remove('hidden');
                 playbookContent.classList.add('hidden');
-                loginErrorMessage.classList.add('hidden'); // Hide error on fresh login screen
-                passwordInput.value = ''; // Clear password input
-                rememberMeCheckbox.checked = false; // Uncheck remember me
+                loginErrorMessage.classList.add('hidden');
+                passwordInput.value = '';
+                rememberMeCheckbox.checked = false;
             }
 
             function showPlaybook() {
-                loginScreen.classList.add('hidden'); // Hide the login screen
-                playbookContent.classList.remove('hidden'); // Show the main playbook content
+                loginScreen.classList.add('hidden');
+                playbookContent.classList.remove('hidden');
 
-                // Initialize main playbook content only once after successful login
-                // Check if already initialized to prevent re-initialization on subsequent calls
                 if (!playbookContent.dataset.initialized) {
                     setupTabs();
                     createAccordions();
-                    // setupDiagrams(); // No longer needed for dynamic diagram rendering, only for accordion info
                     renderPracticeChart();
                     setupWeeklyPlanner();
                     setupDrillLibrary();
                     setupNavScroll();
                     setupATOPlays();
-                    playbookContent.dataset.initialized = 'true'; // Mark as initialized
+                    playbookContent.dataset.initialized = 'true';
                 }
             }
 
-            // --- UI SETUP FUNCTIONS (rest of the functions remain mostly the same) ---
+            // --- UI SETUP FUNCTIONS ---
             function setupTabs() {
                 const offenseBtn = document.getElementById('offense-tab-btn');
                 const defenseBtn = document.getElementById('defense-tab-btn');
@@ -782,21 +724,16 @@
                     </div>`;
             }
 
-            function setupDiagrams() {
-                // No dynamic player dots for offense/defense diagrams anymore, using images
-                // The playerInfos object is still used for the accordion content descriptions
-            }
-
             function renderPracticeChart() {
                 const ctx = document.getElementById('practiceChart').getContext('2d');
                 new Chart(ctx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Warm-up & Agility', 'Skill Stations', 'Off/Def Concepts', 'Scrimmage', 'Cool-down'],
+                        labels: ['Warm-up', 'Offensive Skills', 'Defensive Skills', 'Rebounding', 'Scrimmage'],
                         datasets: [{
                             label: 'Time Allocation',
-                            data: [10, 45, 20, 10, 5],
-                            backgroundColor: ['#60a5fa', '#2563eb', '#1d4ed8', '#1e3a8a', '#93c5fd'],
+                            data: [10, 30, 25, 15, 10],
+                            backgroundColor: ['#60a5fa', '#2563eb', '#dc2626', '#f59e0b', '#10b981'],
                             borderColor: '#ffffff',
                             borderWidth: 2,
                             hoverOffset: 4
@@ -838,16 +775,14 @@
                 const weekTabsContainer = document.getElementById('week-tabs');
                 const weekContentContainer = document.getElementById('week-content');
                 
-                // Clear existing tabs to prevent duplicates on re-render (e.g., after logout/login)
-                weekTabsContainer.innerHTML = ''; 
+                weekTabsContainer.innerHTML = '';
 
-                // Create tabs for each practice (e.g., W1 P1, W1 P2)
                 fullPracticePlan.forEach(weekData => {
                     weekData.practices.forEach((practice, pIndex) => {
                         const button = document.createElement('button');
                         button.textContent = `${weekData.week === 'Flexible' ? '' : 'W' + weekData.week + ' '}P${pIndex + 1}`;
                         if (weekData.week === 'Flexible') {
-                            button.textContent = practice.name; // Use full name for flexible practices
+                            button.textContent = practice.name.replace('Fill-in Practice ', 'Fill-in ').replace('Low Intensity Practice', 'Low Int');
                         }
                         button.className = `px-3 py-1 text-sm rounded-full border transition-colors bg-white text-stone-600 hover:bg-blue-100 border-stone-300`;
                         button.dataset.week = weekData.week;
@@ -857,13 +792,11 @@
                 });
 
                 const renderPracticeTable = (weekId, practiceIndex) => {
-                    // Convert weekId to string for consistent comparison with w.week
                     const weekData = fullPracticePlan.find(w => w.week.toString() === weekId.toString());
                     if (!weekData) return;
                     const practice = weekData.practices[practiceIndex];
                     if (!practice) return;
 
-                    // Initialize state for this practice if not already present
                     if (!practiceDrillStates[weekId]) {
                         practiceDrillStates[weekId] = {};
                     }
@@ -872,12 +805,12 @@
                     }
 
                     let tableHTML = `
-                        <h4 class="font-bold text-lg mb-3 text-blue-900">Week ${weekData.week === 'Flexible' ? 'Flexible - ' : weekData.week + ' '} ${practice.name} Details</h4>
+                        <h4 class="font-bold text-lg mb-3 text-blue-900">Week ${weekData.week === 'Flexible' ? 'Flexible - ' : weekData.week + ' - '} ${practice.name}</h4>
                         <table class="practice-table w-full text-sm">
                             <thead>
                                 <tr>
                                     <th>Done</th>
-                                    <th>Drill/Activity/Game</th>
+                                    <th>Drill/Activity</th>
                                     <th>Skills Covered</th>
                                     <th>Setup & How to Run</th>
                                     <th>Key Points</th>
@@ -908,7 +841,6 @@
                     `;
                     weekContentContainer.innerHTML = tableHTML;
 
-                    // Add event listeners to checkboxes
                     weekContentContainer.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
                         checkbox.addEventListener('change', (e) => {
                             const drillName = e.target.dataset.drillName;
@@ -918,9 +850,7 @@
                         });
                     });
 
-                    // Update active tab styling
                     weekTabsContainer.querySelectorAll('button').forEach(btn => {
-                        // Ensure comparison is consistent for both number and string week IDs
                         const btnWeekId = btn.dataset.week;
                         const btnPracticeIndex = parseInt(btn.dataset.practiceIndex);
 
@@ -938,27 +868,24 @@
                 
                 weekTabsContainer.addEventListener('click', (e) => {
                     if (e.target.tagName === 'BUTTON' && e.target.dataset.week && e.target.dataset.practiceIndex) {
-                        const week = e.target.dataset.week; // Keep as string for 'Flexible'
+                        const week = e.target.dataset.week;
                         const pIndex = parseInt(e.target.dataset.practiceIndex);
                         renderPracticeTable(week, pIndex);
                     }
                 });
                 
-                // Render the first practice by default
-                renderPracticeTable(1, 0); 
+                renderPracticeTable(1, 0);
             }
 
-            let currentCategoryFilter = 'All'; // Default filter for drill library
+            let currentCategoryFilter = 'All';
 
             function setupDrillLibrary() {
                 const container = document.getElementById('drill-library-container');
                 const searchInput = document.getElementById('drill-search');
                 const categoryFiltersContainer = document.getElementById('drill-category-filters');
 
-                // Clear existing category buttons to prevent duplicates on re-render
                 categoryFiltersContainer.innerHTML = '';
 
-                // Render category buttons
                 drillCategories.forEach(category => {
                     const button = document.createElement('button');
                     button.textContent = category;
@@ -1012,13 +939,11 @@
                             <p class="text-xs font-medium uppercase text-stone-500 tracking-wider mb-2">${drill.skills}</p>
                             <p class="text-sm text-stone-600">${drill.desc}</p>
                         `;
-                        card.dataset.title = drill.title.toLowerCase();
-                        card.dataset.skills = drill.skills.toLowerCase();
                         container.appendChild(card);
                     });
                 };
                 
-                filterAndRenderDrills(); // Initial render
+                filterAndRenderDrills();
             }
             
             function setupNavScroll() {
@@ -1048,7 +973,6 @@
                 const atoPlayTitle = document.getElementById('ato-play-title');
                 const atoPlayDetailsContainer = document.getElementById('ato-play-details-container');
 
-                // Clear existing ATO play buttons to prevent duplicates on re-render
                 atoPlayList.innerHTML = '';
 
                 atoPlays.forEach((play, index) => {
@@ -1058,7 +982,7 @@
                     button.dataset.playId = play.id;
                     atoPlayList.appendChild(button);
 
-                    if (index === 0) { // Select the first play by default
+                    if (index === 0) {
                         button.classList.add('active');
                         renderATODetail(play);
                     }
@@ -1077,8 +1001,7 @@
 
                 function renderATODetail(play) {
                     atoPlayTitle.textContent = play.name;
-                    // Render details as an ordered list without extra bullet points
-                    atoPlayDetailsContainer.innerHTML = `<ol class="list-decimal list-inside text-stone-600 mb-4">${play.details.map(detail => `<li>${detail.replace(/^\d+\.\s*/, '')}</li>`).join('')}</ol>`;
+                    atoPlayDetailsContainer.innerHTML = `<ol class="list-decimal list-inside text-stone-600 mb-4">${play.details.map(detail => `<li>${detail}</li>`).join('')}</ol>`;
                 }
             }
 
